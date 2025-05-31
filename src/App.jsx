@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./App.css";
+import PersonalInfo from "./PersonalInfo";
+import EducationInfo from "./EducationInfo";
+import ExperienceInfo from "./ExperienceInfo";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -10,6 +13,7 @@ function App() {
     phoneNumber: "",
     email: "",
     description: "",
+    id: crypto.randomUUID(),
   });
 
   const [educationInfo, setEducationInfo] = useState({
@@ -19,14 +23,21 @@ function App() {
     subject: "",
     startDate: "",
     endDate: "",
+    id: crypto.randomUUID(),
   });
 
-  const [educationInfoList, setEducationInfoList] = useState([]);
+  const [experienceInfo, setExperienceInfo] = useState({
+    position: "",
+    company: "",
+    city: "",
+    startDate: "",
+    endDate: "",
+    id: crypto.randomUUID(),
+  });
 
-  let day = new Date().getDate();
-  let month = new Date().getMonth() + 1;
-  let year = new Date().getFullYear();
-  let date = `${day}.${month}.${year}`;
+  const [educationInfoList, setEducationInfoList] = useState([educationInfo]);
+  // prettier-ignore
+  const [experienceInfoList, setExperienceInfoList] = useState([experienceInfo]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -40,131 +51,41 @@ function App() {
   return (
     <>
       <div className="inputs-container">
-        <form className="education-info-cont">
-          <h3>Personal Information</h3>
-          <input
-            type="text"
-            placeholder="First Name"
-            onChange={(e) =>
-              setPersonalInfo((prev) => {
-                return { ...prev, firstName: e.target.value };
-              })
-            }
+        <PersonalInfo
+          key={1}
+          setPersonalInfo={setPersonalInfo}
+          id={personalInfo.id}
+        />
+
+        {educationInfoList.map((educationInfo, index) => (
+          <EducationInfo
+            key={index}
+            id={educationInfo.id}
+            setEducationInfo={setEducationInfo}
+            handleSubmit={handleSubmit}
           />
-          <input
-            type="text"
-            placeholder="Last Name"
-            onChange={(e) =>
-              setPersonalInfo((prev) => {
-                return { ...prev, lastName: e.target.value };
-              })
-            }
+        ))}
+        <button
+          className="add-education"
+          onClick={() => setEducationInfoList((prev) => [...prev, prev])}
+        >
+          ADD EDUCATION
+        </button>
+
+        {experienceInfoList.map((experienceInfo, index) => (
+          <ExperienceInfo
+            key={index}
+            id={experienceInfo.id}
+            setExperienceInfo={setExperienceInfo}
           />
-          <input
-            type="text"
-            placeholder="Title"
-            onChange={(e) =>
-              setPersonalInfo((prev) => {
-                return { ...prev, title: e.target.value };
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Address"
-            onChange={(e) =>
-              setPersonalInfo((prev) => {
-                return { ...prev, address: e.target.value };
-              })
-            }
-          />
-          <input
-            type="tel"
-            placeholder="Phone number"
-            onChange={(e) =>
-              setPersonalInfo((prev) => {
-                return { ...prev, phoneNumber: e.target.value };
-              })
-            }
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            onChange={(e) =>
-              setPersonalInfo((prev) => {
-                return { ...prev, email: e.target.value };
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            onChange={(e) =>
-              setPersonalInfo((prev) => {
-                return { ...prev, description: e.target.value };
-              })
-            }
-          />
-          <button className="hidden"></button>
-        </form>
-        <form className="personal-info-cont" onSubmit={handleSubmit}>
-          <h3>Education</h3>
-          <input
-            type="text"
-            placeholder="University name"
-            onChange={(e) =>
-              setEducationInfo((prev) => {
-                return { ...prev, uniName: e.target.value };
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="City"
-            onChange={(e) =>
-              setEducationInfo((prev) => {
-                return { ...prev, city: e.target.value };
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Degree"
-            onChange={(e) =>
-              setEducationInfo((prev) => {
-                return { ...prev, degree: e.target.value };
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Subject"
-            onChange={(e) =>
-              setEducationInfo((prev) => {
-                return { ...prev, subject: e.target.value };
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="From (dd/mm/yy)"
-            onChange={(e) =>
-              setEducationInfo((prev) => {
-                return { ...prev, startDate: e.target.value };
-              })
-            }
-          />
-          <input
-            type="text"
-            placeholder="To (dd/mm/yy)"
-            onChange={(e) =>
-              setEducationInfo((prev) => {
-                return { ...prev, endDate: e.target.value };
-              })
-            }
-          />
-          <button className="hidden"></button>
-        </form>
+        ))}
+
+        <button
+          className="add-education"
+          onClick={() => setExperienceInfoList((prev) => [...prev, prev])}
+        >
+          ADD EXPERIENCE
+        </button>
       </div>
     </>
   );

@@ -1,9 +1,9 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
 }
 
 * {
@@ -13,7 +13,7 @@
 }
 
 .inputs-container {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.147);
   padding: 20px 32px;
   width: 1000px;
   margin: 0 auto;
@@ -24,7 +24,8 @@
 }
 
 .personal-info-cont,
-.education-info-cont {
+.education-info-cont,
+.experience-info-cont {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -32,11 +33,18 @@
 }
 
 .personal-info-cont input,
-.education-info-cont input {
+.education-info-cont input,
+.experience-info-cont input {
   /* width: 90%; */
   height: 40px;
   padding-left: 10px;
   border-radius: 5px;
+  border: none;
+}
+
+.add-education {
+  height: 40px;
+  cursor: pointer;
 }
 
 .hidden {
