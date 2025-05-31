@@ -3,7 +3,13 @@ import React from "react";
 function PersonalInfo(props) {
   const { setPersonalInfo, id } = props;
   return (
-    <form data-id={id} className="personal-info-cont">
+    <div
+      data-id={id}
+      className="personal-info-cont"
+      onClick={(e) => {
+        console.log(e.target.closest(".personal-info-cont").dataset.id);
+      }}
+    >
       <h3>Personal Information</h3>
       <input
         type="text"
@@ -69,7 +75,7 @@ function PersonalInfo(props) {
         }
       />
       <button className="hidden"></button>
-    </form>
+    </div>
   );
 }
 

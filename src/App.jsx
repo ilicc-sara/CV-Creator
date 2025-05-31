@@ -42,11 +42,7 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(educationInfo);
-
-    setEducationInfoList((prev) => [...prev, educationInfo]);
-
-    console.log(educationInfoList);
+    console.log(experienceInfo);
   }
   return (
     <>
@@ -62,7 +58,6 @@ function App() {
             key={index}
             id={educationInfo.id}
             setEducationInfo={setEducationInfo}
-            handleSubmit={handleSubmit}
           />
         ))}
         <button

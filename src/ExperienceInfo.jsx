@@ -1,7 +1,7 @@
 import React from "react";
 
 function ExperienceInfo(props) {
-  const { setExperienceInfo, id } = props;
+  const { setExperienceInfo, id, handleSubmit } = props;
   return (
     <form data-id={id} className="experience-info-cont">
       <h3>Experience</h3>

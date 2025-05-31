@@ -3,7 +3,7 @@ import React from "react";
 function EducationInfo(props) {
   const { setEducationInfo, handleSubmit, id } = props;
   return (
-    <form data-id={id} className="education-info-cont" onSubmit={handleSubmit}>
+    <div data-id={id} className="education-info-cont">
       <h3>Education</h3>
       <input
         type="text"
@@ -60,7 +60,7 @@ function EducationInfo(props) {
         }
       />
       <button className="hidden"></button>
-    </form>
+    </div>
   );
 }
 
