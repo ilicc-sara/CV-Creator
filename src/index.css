@@ -18,18 +18,27 @@
   width: 1000px;
   margin: 0 auto;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.personal-info-cont {
+.personal-info-cont,
+.education-info-cont {
   display: flex;
   flex-direction: column;
   text-align: left;
   gap: 10px;
 }
 
-.personal-info-cont input {
+.personal-info-cont input,
+.education-info-cont input {
   /* width: 90%; */
   height: 40px;
   padding-left: 10px;
   border-radius: 5px;
+}
+
+.hidden {
+  display: none;
 }
