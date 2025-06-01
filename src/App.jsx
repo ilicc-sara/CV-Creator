@@ -39,11 +39,11 @@ function App() {
   // prettier-ignore
   const [experienceInfoList, setExperienceInfoList] = useState([experienceInfo]);
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  //   console.log(experienceInfo);
-  // }
+    console.log(personalInfo);
+  }
   return (
     <>
       <div className="inputs-container">
@@ -51,6 +51,7 @@ function App() {
           key={1}
           setPersonalInfo={setPersonalInfo}
           id={personalInfo.id}
+          handleSubmit={handleSubmit}
         />
 
         {educationInfoList.map((educationInfo, index) => (
