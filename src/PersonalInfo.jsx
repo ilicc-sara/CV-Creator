@@ -13,12 +13,14 @@ function PersonalInfo(props) {
       <h3>Personal Information</h3>
       <input
         type="text"
+        name="firstName"
         placeholder="First Name"
-        onChange={(e) =>
-          setPersonalInfo((prev) => {
-            return { ...prev, firstName: e.target.value };
-          })
-        }
+        onChange={handlePersonalInfoChange}
+        // onChange={(e) =>
+        //   setPersonalInfo((prev) => {
+        //     return { ...prev, [e.target.name]: e.target.value };
+        //   })
+        // }
       />
       <input
         type="text"

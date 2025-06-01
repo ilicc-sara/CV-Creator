@@ -39,11 +39,11 @@ function App() {
   // prettier-ignore
   const [experienceInfoList, setExperienceInfoList] = useState([experienceInfo]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-    console.log(experienceInfo);
-  }
+  //   console.log(experienceInfo);
+  // }
   return (
     <>
       <div className="inputs-container">
