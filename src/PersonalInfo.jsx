@@ -12,10 +12,10 @@ function PersonalInfo(props) {
     <form
       data-id={id}
       className="personal-info-cont"
-      // onClick={(e) => {
-      //   console.log(e.target.closest(".personal-info-cont").dataset.id);
-      // }}
-      onSubmit={handleSubmit}
+      onClick={(e) => {
+        console.log(e.target.closest(".personal-info-cont").dataset.id);
+      }}
+      // onSubmit={handleSubmit}
     >
       <h3>Personal Information</h3>
       <input

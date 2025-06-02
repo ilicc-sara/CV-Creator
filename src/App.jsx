@@ -16,33 +16,37 @@ function App() {
     id: crypto.randomUUID(),
   });
 
-  const [educationInfo, setEducationInfo] = useState({
-    uniName: "",
-    city: "",
-    degree: "",
-    subject: "",
-    startDate: "",
-    endDate: "",
-    id: crypto.randomUUID(),
-  });
+  const [educationInfo, setEducationInfo] = useState([
+    {
+      uniName: "",
+      city: "",
+      degree: "",
+      subject: "",
+      startDate: "",
+      endDate: "",
+      id: crypto.randomUUID(),
+    },
+  ]);
 
-  const [experienceInfo, setExperienceInfo] = useState({
-    position: "",
-    company: "",
-    city: "",
-    startDate: "",
-    endDate: "",
-    id: crypto.randomUUID(),
-  });
+  const [experienceInfo, setExperienceInfo] = useState([
+    {
+      position: "",
+      company: "",
+      city: "",
+      startDate: "",
+      endDate: "",
+      id: crypto.randomUUID(),
+    },
+  ]);
 
-  const [educationInfoList, setEducationInfoList] = useState([educationInfo]);
-  // prettier-ignore
-  const [experienceInfoList, setExperienceInfoList] = useState([experienceInfo]);
+  // const [educationInfoList, setEducationInfoList] = useState([educationInfo]);
+  // // prettier-ignore
+  // const [experienceInfoList, setExperienceInfoList] = useState([experienceInfo]);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(personalInfo);
+    console.log(educationInfo);
   }
   return (
     <>
@@ -54,21 +58,35 @@ function App() {
           handleSubmit={handleSubmit}
         />
 
-        {educationInfoList.map((educationInfo, index) => (
+        {educationInfo.map((educationInfo, index) => (
           <EducationInfo
             key={index}
             id={educationInfo.id}
             setEducationInfo={setEducationInfo}
+            handleSubmit={handleSubmit}
           />
         ))}
         <button
           className="add-education"
-          onClick={() => setEducationInfoList((prev) => [...prev, prev])}
+          onClick={() =>
+            setEducationInfo((prev) => [
+              ...prev,
+              {
+                uniName: "",
+                city: "",
+                degree: "",
+                subject: "",
+                startDate: "",
+                endDate: "",
+                id: crypto.randomUUID(),
+              },
+            ])
+          }
         >
           ADD EDUCATION
         </button>
 
-        {experienceInfoList.map((experienceInfo, index) => (
+        {experienceInfo.map((experienceInfo, index) => (
           <ExperienceInfo
             key={index}
             id={experienceInfo.id}
@@ -78,7 +96,19 @@ function App() {
 
         <button
           className="add-education"
-          onClick={() => setExperienceInfoList((prev) => [...prev, prev])}
+          onClick={() =>
+            setExperienceInfo((prev) => [
+              ...prev,
+              {
+                position: "",
+                company: "",
+                city: "",
+                startDate: "",
+                endDate: "",
+                id: crypto.randomUUID(),
+              },
+            ])
+          }
         >
           ADD EXPERIENCE
         </button>

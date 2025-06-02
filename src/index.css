@@ -33,21 +33,21 @@
   padding: 5px;
 }
 
-/* .personal-info-cont {
+.personal-info-cont {
   background: linear-gradient(to top left, #c62e2e9e, #ff58a38c);
-} */
+}
 
-/* .education-info-cont {
+.education-info-cont {
   background: linear-gradient(to top left, rgba(8, 147, 66, 0.505), #9ae15d85);
-} */
+}
 
-/* .experience-info-cont {
+.experience-info-cont {
   background: linear-gradient(
     to bottom right,
     rgba(104, 232, 239, 0.596),
     rgba(94, 119, 194, 0.507)
   );
-} */
+}
 
 .personal-info-cont input,
 .education-info-cont input,
