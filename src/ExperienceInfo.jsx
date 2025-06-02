@@ -18,7 +18,7 @@ function ExperienceInfo(props) {
   }
 
   return (
-    <form data-id={id} className="experience-info-cont">
+    <div data-id={id} className="experience-info-cont">
       <h3>Experience</h3>
       <input
         type="text"
@@ -52,7 +52,7 @@ function ExperienceInfo(props) {
         onChange={handleExperienceInfoChange}
       />
       <button className="hidden"></button>
-    </form>
+    </div>
   );
 }
 

@@ -39,14 +39,48 @@ function App() {
     },
   ]);
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  //   console.log(experienceInfo);
-  // }
+    console.log(personalInfo, educationInfo, experienceInfo);
+  }
+
+  function reset() {
+    setPersonalInfo({
+      firstName: "",
+      lastName: "",
+      title: "",
+      address: "",
+      phoneNumber: "",
+      email: "",
+      description: "",
+      id: crypto.randomUUID(),
+    });
+    setEducationInfo([
+      {
+        uniName: "",
+        city: "",
+        degree: "",
+        subject: "",
+        startDate: "",
+        endDate: "",
+        id: crypto.randomUUID(),
+      },
+    ]);
+    setExperienceInfo([
+      {
+        position: "",
+        company: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+        id: crypto.randomUUID(),
+      },
+    ]);
+  }
   return (
     <>
-      <div className="inputs-container">
+      <form onSubmit={handleSubmit} className="inputs-container">
         <PersonalInfo
           key={1}
           setPersonalInfo={setPersonalInfo}
@@ -61,6 +95,7 @@ function App() {
           />
         ))}
         <button
+          type="button"
           className="add-education"
           onClick={() =>
             setEducationInfo((prev) => [
@@ -89,6 +124,7 @@ function App() {
         ))}
 
         <button
+          type="button"
           className="add-education"
           onClick={() =>
             setExperienceInfo((prev) => [
@@ -106,7 +142,12 @@ function App() {
         >
           ADD EXPERIENCE
         </button>
-      </div>
+
+        <button type="submit">Preview</button>
+        <button type="button" onClick={() => reset()}>
+          Reset
+        </button>
+      </form>
     </>
   );
 }

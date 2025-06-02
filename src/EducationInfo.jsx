@@ -18,7 +18,7 @@ function EducationInfo(props) {
   }
 
   return (
-    <form
+    <div
       data-id={id}
       className="education-info-cont"
       onClick={(e) => {
@@ -63,7 +63,7 @@ function EducationInfo(props) {
         onChange={handleEducationInfoChange}
       />
       <button className="hidden"></button>
-    </form>
+    </div>
   );
 }
 
