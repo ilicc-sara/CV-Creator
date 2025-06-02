@@ -1,7 +1,7 @@
 import React from "react";
 
 function PersonalInfo(props) {
-  const { setPersonalInfo, id, handleSubmit } = props;
+  const { setPersonalInfo, id } = props;
 
   function handlePersonalInfoChange(e) {
     setPersonalInfo((prev) => {
@@ -9,13 +9,12 @@ function PersonalInfo(props) {
     });
   }
   return (
-    <form
+    <div
       data-id={id}
       className="personal-info-cont"
       onClick={(e) => {
         console.log(e.target.closest(".personal-info-cont").dataset.id);
       }}
-      // onSubmit={handleSubmit}
     >
       <h3>Personal Information</h3>
       <input
@@ -61,7 +60,7 @@ function PersonalInfo(props) {
         onChange={handlePersonalInfoChange}
       />
       <button className="hidden"></button>
-    </form>
+    </div>
   );
 }
 

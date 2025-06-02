@@ -39,15 +39,11 @@ function App() {
     },
   ]);
 
-  // const [educationInfoList, setEducationInfoList] = useState([educationInfo]);
-  // // prettier-ignore
-  // const [experienceInfoList, setExperienceInfoList] = useState([experienceInfo]);
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    console.log(educationInfo);
-  }
+  //   console.log(experienceInfo);
+  // }
   return (
     <>
       <div className="inputs-container">
@@ -55,7 +51,6 @@ function App() {
           key={1}
           setPersonalInfo={setPersonalInfo}
           id={personalInfo.id}
-          handleSubmit={handleSubmit}
         />
 
         {educationInfo.map((educationInfo, index) => (
@@ -63,7 +58,6 @@ function App() {
             key={index}
             id={educationInfo.id}
             setEducationInfo={setEducationInfo}
-            handleSubmit={handleSubmit}
           />
         ))}
         <button

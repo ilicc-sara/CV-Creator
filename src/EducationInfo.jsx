@@ -1,18 +1,21 @@
 import React from "react";
 
 function EducationInfo(props) {
-  const { setEducationInfo, handleSubmit, id } = props;
+  const { setEducationInfo, id } = props;
 
-  // let educationInfoElementId;
-  // console.log(educationInfoElementId);
-
-  // let elementId;
-
-  //  function handlePersonalInfoChange(e) {
-  //   setPersonalInfo((prev) => {
-  //     return { ...prev, [e.target.name]: e.target.value };
-  //   });
-  // }
+  function handleEducationInfoChange(e) {
+    {
+      setEducationInfo((prev) =>
+        prev.map((object) => {
+          if (object.id === id) {
+            return { ...object, [e.target.name]: e.target.value };
+          } else {
+            return { ...object };
+          }
+        })
+      );
+    }
+  }
 
   return (
     <form
@@ -20,130 +23,44 @@ function EducationInfo(props) {
       className="education-info-cont"
       onClick={(e) => {
         console.log(e.target.closest(".education-info-cont").dataset.id);
-        // elementId = e.target.closest(".education-info-cont").dataset.id;
       }}
-      onSubmit={handleSubmit}
     >
       <h3>Education</h3>
       <input
         type="text"
+        name="uniName"
         placeholder="University name"
-        // onChange={(e) =>
-        //   setEducationInfo((prev) => {
-        //     return { ...prev, uniName: e.target.value };
-        //   })
-        // }
-        onChange={(e) => {
-          setEducationInfo((prev) =>
-            prev.map((object) => {
-              if (object.id === id) {
-                return { ...object, uniName: e.target.value };
-              } else {
-                return { ...object };
-              }
-            })
-          );
-        }}
+        onChange={handleEducationInfoChange}
       />
       <input
         type="text"
+        name="city"
         placeholder="City"
-        // onChange={(e) =>
-        //   setEducationInfo((prev) => {
-        //     return { ...prev, city: e.target.value };
-        //   })
-        // }
-        onChange={(e) => {
-          setEducationInfo((prev) =>
-            prev.map((object) => {
-              if (object.id === id) {
-                return { ...object, city: e.target.value };
-              } else {
-                return { ...object };
-              }
-            })
-          );
-        }}
+        onChange={handleEducationInfoChange}
       />
       <input
         type="text"
+        name="degree"
         placeholder="Degree"
-        // onChange={(e) =>
-        //   setEducationInfo((prev) => {
-        //     return { ...prev, degree: e.target.value };
-        //   })
-        // }
-        onChange={(e) => {
-          setEducationInfo((prev) =>
-            prev.map((object) => {
-              if (object.id === id) {
-                return { ...object, degree: e.target.value };
-              } else {
-                return { ...object };
-              }
-            })
-          );
-        }}
+        onChange={handleEducationInfoChange}
       />
       <input
         type="text"
+        name="subject"
         placeholder="Subject"
-        // onChange={(e) =>
-        //   setEducationInfo((prev) => {
-        //     return { ...prev, subject: e.target.value };
-        //   })
-        // }
-        onChange={(e) => {
-          setEducationInfo((prev) =>
-            prev.map((object) => {
-              if (object.id === id) {
-                return { ...object, subject: e.target.value };
-              } else {
-                return { ...object };
-              }
-            })
-          );
-        }}
+        onChange={handleEducationInfoChange}
       />
       <input
         type="text"
+        name="startDate"
         placeholder="From (dd/mm/yy)"
-        // onChange={(e) =>
-        //   setEducationInfo((prev) => {
-        //     return { ...prev, startDate: e.target.value };
-        //   })
-        // }
-        onChange={(e) => {
-          setEducationInfo((prev) =>
-            prev.map((object) => {
-              if (object.id === id) {
-                return { ...object, startDate: e.target.value };
-              } else {
-                return { ...object };
-              }
-            })
-          );
-        }}
+        onChange={handleEducationInfoChange}
       />
       <input
         type="text"
+        name="endDate"
         placeholder="To (dd/mm/yy)"
-        // onChange={(e) =>
-        //   setEducationInfo((prev) => {
-        //     return { ...prev, endDate: e.target.value };
-        //   })
-        // }
-        onChange={(e) => {
-          setEducationInfo((prev) =>
-            prev.map((object) => {
-              if (object.id === id) {
-                return { ...object, endDate: e.target.value };
-              } else {
-                return { ...object };
-              }
-            })
-          );
-        }}
+        onChange={handleEducationInfoChange}
       />
       <button className="hidden"></button>
     </form>

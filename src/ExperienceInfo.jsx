@@ -1,55 +1,55 @@
 import React from "react";
 
 function ExperienceInfo(props) {
-  const { setExperienceInfo, id, handleSubmit } = props;
+  const { setExperienceInfo, id } = props;
+
+  function handleExperienceInfoChange(e) {
+    {
+      setExperienceInfo((prev) =>
+        prev.map((object) => {
+          if (object.id === id) {
+            return { ...object, [e.target.name]: e.target.value };
+          } else {
+            return { ...object };
+          }
+        })
+      );
+    }
+  }
+
   return (
     <form data-id={id} className="experience-info-cont">
       <h3>Experience</h3>
       <input
         type="text"
+        name="position"
         placeholder="Position"
-        onChange={(e) =>
-          setExperienceInfo((prev) => {
-            return { ...prev, position: e.target.value };
-          })
-        }
+        onChange={handleExperienceInfoChange}
       />
       <input
         type="text"
+        name="company"
         placeholder="Company"
-        onChange={(e) =>
-          setExperienceInfo((prev) => {
-            return { ...prev, company: e.target.value };
-          })
-        }
+        onChange={handleExperienceInfoChange}
       />
       <input
         type="text"
+        name="city"
         placeholder="City"
-        onChange={(e) =>
-          setExperienceInfo((prev) => {
-            return { ...prev, city: e.target.value };
-          })
-        }
+        onChange={handleExperienceInfoChange}
       />
 
       <input
         type="text"
+        name="startDate"
         placeholder="From (dd/mm/yy)"
-        onChange={(e) =>
-          setExperienceInfo((prev) => {
-            return { ...prev, startDate: e.target.value };
-          })
-        }
+        onChange={handleExperienceInfoChange}
       />
       <input
         type="text"
+        name="endDate"
         placeholder="To (dd/mm/yy)"
-        onChange={(e) =>
-          setExperienceInfo((prev) => {
-            return { ...prev, endDate: e.target.value };
-          })
-        }
+        onChange={handleExperienceInfoChange}
       />
       <button className="hidden"></button>
     </form>
