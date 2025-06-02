@@ -77,6 +77,10 @@ function App() {
         id: crypto.randomUUID(),
       },
     ]);
+
+    const inputs = document.querySelectorAll("input");
+
+    inputs.forEach((input) => (input.value = ""));
   }
   return (
     <>
