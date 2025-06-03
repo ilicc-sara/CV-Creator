@@ -90,6 +90,17 @@
   background: linear-gradient(to top left, #c62e2e, #fb2134);
 }
 
+.delete-btn {
+  height: 40px;
+  cursor: pointer;
+  background-color: #1e2c43;
+  border: none;
+  border-radius: 5px;
+  color: #e1edff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
 .hidden {
   display: none;
 }

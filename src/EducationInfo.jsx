@@ -64,6 +64,7 @@ function EducationInfo(props) {
       />
       <button
         type="button"
+        className="delete-btn"
         onClick={() =>
           setEducationInfo((prev) => prev.filter((object) => object.id !== id))
         }

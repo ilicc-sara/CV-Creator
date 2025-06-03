@@ -53,6 +53,7 @@ function ExperienceInfo(props) {
       />
       <button
         type="button"
+        className="delete-btn"
         onClick={() =>
           setExperienceInfo((prev) => prev.filter((object) => object.id !== id))
         }
