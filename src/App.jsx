@@ -116,7 +116,7 @@ function App() {
             ])
           }
         >
-          ADD EDUCATION
+          Add Education
         </button>
 
         {experienceInfo.map((experienceInfo, index) => (
@@ -129,7 +129,7 @@ function App() {
 
         <button
           type="button"
-          className="add-education"
+          className="add-experience"
           onClick={() =>
             setExperienceInfo((prev) => [
               ...prev,
@@ -144,11 +144,17 @@ function App() {
             ])
           }
         >
-          ADD EXPERIENCE
+          Add Experience
         </button>
 
-        <button type="submit">Preview</button>
-        <button type="button" onClick={() => reset()}>
+        <button className="finish-btn btn-preview" type="submit">
+          Preview
+        </button>
+        <button
+          className="finish-btn btn-reset"
+          type="button"
+          onClick={() => reset()}
+        >
           Reset
         </button>
       </form>

@@ -59,9 +59,35 @@
   border: none;
 }
 
-.add-education {
+.add-education,
+.add-experience {
   height: 40px;
   cursor: pointer;
+  background-color: #1e293b;
+  border: none;
+  border-radius: 5px;
+  color: #e1edff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.finish-btn {
+  height: 40px;
+  cursor: pointer;
+  background-color: #1e293b;
+  border: none;
+  border-radius: 5px;
+  color: #e1edff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.btn-preview {
+  background: linear-gradient(to top left, rgb(8, 147, 66), #9ae15d);
+}
+
+.btn-reset {
+  background: linear-gradient(to top left, #c62e2e, #fb2134);
 }
 
 .hidden {
