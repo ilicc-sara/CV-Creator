@@ -62,7 +62,14 @@ function EducationInfo(props) {
         placeholder="To (dd/mm/yy)"
         onChange={handleEducationInfoChange}
       />
-      <button className="hidden"></button>
+      <button
+        type="button"
+        onClick={() =>
+          setEducationInfo((prev) => prev.filter((object) => object.id !== id))
+        }
+      >
+        Delete
+      </button>
     </div>
   );
 }

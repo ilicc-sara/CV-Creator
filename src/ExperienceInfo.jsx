@@ -51,7 +51,14 @@ function ExperienceInfo(props) {
         placeholder="To (dd/mm/yy)"
         onChange={handleExperienceInfoChange}
       />
-      <button className="hidden"></button>
+      <button
+        type="button"
+        onClick={() =>
+          setExperienceInfo((prev) => prev.filter((object) => object.id !== id))
+        }
+      >
+        Delete
+      </button>
     </div>
   );
 }
