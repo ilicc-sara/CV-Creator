@@ -101,6 +101,65 @@
   font-size: 18px;
 }
 
+.preview-page {
+  background-color: lightgreen;
+  width: 750px;
+  margin: 0 auto;
+}
+
+.nav {
+  background-color: green;
+  color: white;
+  text-align: left;
+  padding: 10px 25px;
+}
+
+.main {
+  width: 100%;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 4fr 1.5fr;
+}
+
+.details-cont {
+  background-color: aqua;
+  text-align: left;
+  padding: 10px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.details-cont h3 {
+  /* text-decoration: underline; */
+  border-bottom: 1px solid gray;
+}
+
+.personal-details-cont {
+  background-color: lightpink;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.personal-details-cont span {
+  width: 100%;
+  height: 150px;
+  background-color: gray;
+}
+
+.personal-details-cont h3 {
+  border-bottom: 1px solid gray;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.personal-details-cont div {
+  margin-left: 10px;
+}
+
 .hidden {
   display: none;
 }
