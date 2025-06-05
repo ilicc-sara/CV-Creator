@@ -99,11 +99,12 @@ function App() {
             personalInfo={personalInfo}
           />
 
-          {educationInfo.map((educationInfo, index) => (
+          {educationInfo.map((educationInf, index) => (
             <EducationInfo
               key={index}
-              id={educationInfo.id}
+              id={educationInf.id}
               setEducationInfo={setEducationInfo}
+              educationInfo={educationInfo}
             />
           ))}
           <button
@@ -127,11 +128,12 @@ function App() {
             Add Education
           </button>
 
-          {experienceInfo.map((experienceInfo, index) => (
+          {experienceInfo.map((experienceInf, index) => (
             <ExperienceInfo
               key={index}
-              id={experienceInfo.id}
+              id={experienceInf.id}
               setExperienceInfo={setExperienceInfo}
+              experienceInfo={experienceInfo}
             />
           ))}
 

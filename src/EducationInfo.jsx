@@ -1,7 +1,7 @@
 import React from "react";
 
 function EducationInfo(props) {
-  const { setEducationInfo, id } = props;
+  const { setEducationInfo, id, educationInfo } = props;
 
   function handleEducationInfoChange(e) {
     {
@@ -17,6 +17,8 @@ function EducationInfo(props) {
     }
   }
 
+  const index = educationInfo.findIndex((object) => object.id === id);
+
   return (
     <div
       data-id={id}
@@ -30,36 +32,42 @@ function EducationInfo(props) {
         type="text"
         name="uniName"
         placeholder="University name"
+        value={educationInfo[index].uniName}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="city"
         placeholder="City"
+        value={educationInfo[index].city}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="degree"
         placeholder="Degree"
+        value={educationInfo[index].degree}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="subject"
         placeholder="Subject"
+        value={educationInfo[index].subject}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="startDate"
         placeholder="From (dd/mm/yy)"
+        value={educationInfo[index].startDate}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="endDate"
         placeholder="To (dd/mm/yy)"
+        value={educationInfo[index].endDate}
         onChange={handleEducationInfoChange}
       />
       <button
