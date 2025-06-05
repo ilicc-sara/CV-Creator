@@ -6,6 +6,9 @@ import ExperienceInfo from "./ExperienceInfo";
 
 function App() {
   const [previewCV, setPreviewCV] = useState(false);
+  // const [cv, setCV]
+  // react comp input, primi prop type, ako ne primi , po defaultu je text
+  // napraviti componentu input text treba primiti prop type , handluje : text, tel, mail, photo
   const [personalInfo, setPersonalInfo] = useState({
     firstName: "",
     lastName: "",
@@ -81,9 +84,9 @@ function App() {
       },
     ]);
 
-    const inputs = document.querySelectorAll("input");
+    // const inputs = document.querySelectorAll("input");
 
-    inputs.forEach((input) => (input.value = ""));
+    // inputs.forEach((input) => (input.value = ""));
   }
   return (
     <>
@@ -93,6 +96,7 @@ function App() {
             key={1}
             setPersonalInfo={setPersonalInfo}
             id={personalInfo.id}
+            personalInfo={personalInfo}
           />
 
           {educationInfo.map((educationInfo, index) => (
