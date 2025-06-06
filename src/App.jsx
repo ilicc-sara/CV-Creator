@@ -9,6 +9,41 @@ function App() {
   // const [cv, setCV]
   // react comp input, primi prop type, ako ne primi , po defaultu je text
   // napraviti componentu input text treba primiti prop type , handluje : text, tel, mail, photo
+
+  const [cv, setCV] = useState({
+    personalInfo: {
+      firstName: "",
+      lastName: "",
+      title: "",
+      address: "",
+      phoneNumber: "",
+      email: "",
+      description: "",
+      id: crypto.randomUUID(),
+    },
+    educationInfo: [
+      {
+        uniName: "",
+        city: "",
+        degree: "",
+        subject: "",
+        startDate: "",
+        endDate: "",
+        id: crypto.randomUUID(),
+      },
+    ],
+    experienceInfo: [
+      {
+        position: "",
+        company: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+        id: crypto.randomUUID(),
+      },
+    ],
+  });
+
   const [personalInfo, setPersonalInfo] = useState({
     firstName: "",
     lastName: "",
