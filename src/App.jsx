@@ -87,42 +87,128 @@ function App() {
       ],
     });
   }
+  function handlePersonalInfoChange(e) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        personalInfo: { ...prev.personalInfo, [e.target.name]: e.target.value },
+      };
+    });
+  }
+
+  function handleExperienceInfoChange(e) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        experienceInfo: prev.experienceInfo.map((object) => {
+          if (object.id === id) {
+            return { ...object, [e.target.name]: e.target.value };
+          } else {
+            return { ...object };
+          }
+        }),
+      };
+    });
+  }
+
+  function handleEducationInfoChange(e) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        educationInfo: prev.educationInfo.map((object) => {
+          if (object.id === id) {
+            return { ...object, [e.target.name]: e.target.value };
+          } else {
+            return { ...object };
+          }
+        }),
+      };
+    });
+  }
+
+  function deleteEducation(id) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        educationInfo: prev.educationInfo.filter((object) => object.id !== id),
+      };
+    });
+  }
+
+  function deleteExperience(id) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        experienceInfo: prev.experienceInfo.filter(
+          (object) => object.id !== id
+        ),
+      };
+    });
+  }
+
+  function addEducation() {
+    setCV((prev) => {
+      return {
+        ...prev,
+        educationInfo: [
+          ...prev.educationInfo,
+          {
+            uniName: "",
+            city: "",
+            degree: "",
+            subject: "",
+            startDate: "",
+            endDate: "",
+            id: crypto.randomUUID(),
+          },
+        ],
+      };
+    });
+  }
+
+  function addExperience() {
+    setCV((prev) => {
+      return {
+        ...prev,
+        experienceInfo: [
+          ...prev.experienceInfo,
+          {
+            position: "",
+            company: "",
+            city: "",
+            startDate: "",
+            endDate: "",
+            id: crypto.randomUUID(),
+          },
+        ],
+      };
+    });
+  }
   return (
     <>
       {!previewCV && (
         <form onSubmit={handleSubmit} className="inputs-container">
-          <PersonalInfo key={1} setCV={setCV} id={cv.personalInfo.id} cv={cv} />
+          <PersonalInfo
+            key={1}
+            setCV={setCV}
+            id={cv.personalInfo.id}
+            personalInfo={cv.personalInfo}
+            handlePersonalInfoChange={handlePersonalInfoChange}
+          />
 
           {cv.educationInfo.map((educationInf, index) => (
             <EducationInfo
               key={index}
               id={educationInf.id}
-              setCV={setCV}
-              cv={cv}
+              educationInfo={educationInf}
+              handleEducationInfoChange={handleEducationInfoChange}
+              deleteEducation={deleteEducation}
             />
           ))}
           <button
             type="button"
             className="add-education"
-            onClick={() =>
-              setCV((prev) => {
-                return {
-                  ...prev,
-                  educationInfo: [
-                    ...prev.educationInfo,
-                    {
-                      uniName: "",
-                      city: "",
-                      degree: "",
-                      subject: "",
-                      startDate: "",
-                      endDate: "",
-                      id: crypto.randomUUID(),
-                    },
-                  ],
-                };
-              })
-            }
+            onClick={() => addEducation()}
           >
             Add Education
           </button>
@@ -131,32 +217,16 @@ function App() {
             <ExperienceInfo
               key={index}
               id={experienceInf.id}
-              setCV={setCV}
-              cv={cv}
+              experienceInfo={experienceInf}
+              handleExperienceInfoChange={handleExperienceInfoChange}
+              deleteExperience={deleteExperience}
             />
           ))}
 
           <button
             type="button"
             className="add-experience"
-            onClick={() =>
-              setCV((prev) => {
-                return {
-                  ...prev,
-                  experienceInfo: [
-                    ...prev.experienceInfo,
-                    {
-                      position: "",
-                      company: "",
-                      city: "",
-                      startDate: "",
-                      endDate: "",
-                      id: crypto.randomUUID(),
-                    },
-                  ],
-                };
-              })
-            }
+            onClick={() => addExperience()}
           >
             Add Experience
           </button>
