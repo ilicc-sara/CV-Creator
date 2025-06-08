@@ -1,23 +1,44 @@
 import React from "react";
 
 function ExperienceInfo(props) {
-  const { setExperienceInfo, id, experienceInfo } = props;
+  const { id, cv, setCV } = props;
+
+  // function handleExperienceInfoChange(e) {
+  //   {
+  //     setExperienceInfo((prev) =>
+  //       prev.map((object) => {
+  //         if (object.id === id) {
+  //           return { ...object, [e.target.name]: e.target.value };
+  //         } else {
+  //           return { ...object };
+  //         }
+  //       })
+  //     );
+  //   }
+  // }
 
   function handleExperienceInfoChange(e) {
-    {
-      setExperienceInfo((prev) =>
-        prev.map((object) => {
+    setCV((prev) => {
+      return {
+        ...prev,
+        experienceInfo: prev.experienceInfo.map((object) => {
           if (object.id === id) {
             return { ...object, [e.target.name]: e.target.value };
           } else {
             return { ...object };
           }
-        })
-      );
-    }
+        }),
+      };
+    });
   }
 
-  const index = experienceInfo.findIndex((object) => object.id === id);
+  const index = cv.experienceInfo.findIndex((object) => object.id === id);
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+
+  //   console.log(cv.experienceInfo);
+  // }
 
   return (
     <div data-id={id} className="experience-info-cont">
@@ -26,21 +47,21 @@ function ExperienceInfo(props) {
         type="text"
         name="position"
         placeholder="Position"
-        value={experienceInfo[index].position}
+        value={cv.experienceInfo[index].position}
         onChange={handleExperienceInfoChange}
       />
       <input
         type="text"
         name="company"
         placeholder="Company"
-        value={experienceInfo[index].company}
+        value={cv.experienceInfo[index].company}
         onChange={handleExperienceInfoChange}
       />
       <input
         type="text"
         name="city"
         placeholder="City"
-        value={experienceInfo[index].city}
+        value={cv.experienceInfo[index].city}
         onChange={handleExperienceInfoChange}
       />
 
@@ -48,25 +69,33 @@ function ExperienceInfo(props) {
         type="text"
         name="startDate"
         placeholder="From (dd/mm/yy)"
-        value={experienceInfo[index].startDate}
+        value={cv.experienceInfo[index].startDate}
         onChange={handleExperienceInfoChange}
       />
       <input
         type="text"
         name="endDate"
         placeholder="To (dd/mm/yy)"
-        value={experienceInfo[index].endDate}
+        value={cv.experienceInfo[index].endDate}
         onChange={handleExperienceInfoChange}
       />
       <button
         type="button"
         className="delete-btn"
         onClick={() =>
-          setExperienceInfo((prev) => prev.filter((object) => object.id !== id))
+          setCV((prev) => {
+            return {
+              ...prev,
+              experienceInfo: prev.experienceInfo.filter(
+                (object) => object.id !== id
+              ),
+            };
+          })
         }
       >
         Delete
       </button>
+      <button className="hidden"></button>
     </div>
   );
 }

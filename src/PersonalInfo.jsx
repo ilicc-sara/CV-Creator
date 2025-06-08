@@ -1,13 +1,26 @@
 import React from "react";
 
 function PersonalInfo(props) {
-  const { setPersonalInfo, id, personalInfo } = props;
+  const { id, cv, setCV } = props;
+
+  // function handlePersonalInfoChange(e) {
+  //   setPersonalInfo((prev) => {
+  //     return { ...prev, [e.target.name]: e.target.value };
+  //   });
+  // }
 
   function handlePersonalInfoChange(e) {
-    setPersonalInfo((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
+    setCV((prev) => {
+      return {
+        ...prev,
+        // personalInfo: prev.personalInfo.map((object) => {
+        //   return { ...object, [e.target.name]: e.target.value };
+        // }),
+        personalInfo: { ...prev.personalInfo, [e.target.name]: e.target.value },
+      };
     });
   }
+
   return (
     <div
       data-id={id}
@@ -21,49 +34,49 @@ function PersonalInfo(props) {
         type="text"
         name="firstName"
         placeholder="First Name"
-        value={personalInfo.firstName}
+        value={cv.personalInfo.firstName}
         onChange={handlePersonalInfoChange}
       />
       <input
         type="text"
         name="lastName"
         placeholder="Last Name"
-        value={personalInfo.lastName}
+        value={cv.personalInfo.lastName}
         onChange={handlePersonalInfoChange}
       />
       <input
         type="text"
         name="title"
         placeholder="Title"
-        value={personalInfo.title}
+        value={cv.personalInfo.title}
         onChange={handlePersonalInfoChange}
       />
       <input
         type="text"
         name="address"
         placeholder="Address"
-        value={personalInfo.address}
+        value={cv.personalInfo.address}
         onChange={handlePersonalInfoChange}
       />
       <input
         type="tel"
         name="phoneNumber"
         placeholder="Phone number"
-        value={personalInfo.phoneNumber}
+        value={cv.personalInfo.phoneNumber}
         onChange={handlePersonalInfoChange}
       />
       <input
         type="email"
         name="email"
         placeholder="Email"
-        value={personalInfo.email}
+        value={cv.personalInfo.email}
         onChange={handlePersonalInfoChange}
       />
       <input
         type="text"
         name="description"
         placeholder="Description"
-        value={personalInfo.description}
+        value={cv.personalInfo.description}
         onChange={handlePersonalInfoChange}
       />
       <button className="hidden"></button>

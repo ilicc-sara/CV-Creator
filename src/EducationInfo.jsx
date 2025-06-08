@@ -1,23 +1,64 @@
 import React from "react";
 
 function EducationInfo(props) {
-  const { setEducationInfo, id, educationInfo } = props;
+  const { id, cv, setCV } = props;
+
+  // function handleEducationInfoChange(e) {
+  //   {
+  //     setEducationInfo((prev) =>
+  //       prev.map((object) => {
+  //         if (object.id === id) {
+  //           return { ...object, [e.target.name]: e.target.value };
+  //         } else {
+  //           return { ...object };
+  //         }
+  //       })
+  //     );
+  //   }
+  // }
+
+  // function handlePersonalInfoChange(e) {
+  //   setCV((prev) => {
+  //     return {
+  //       ...prev,
+  //       // personalInfo: prev.personalInfo.map((object) => {
+  //       //   return { ...object, [e.target.name]: e.target.value };
+  //       // }),
+  //       personalInfo: { ...prev.personalInfo, [e.target.name]: e.target.value },
+  //     };
+  //   });
+  // }
+
+  // function handleEducationInfoChange(e) {
+  //   setCV((prev) => {
+  //     return {
+  //       ...prev,
+  //       educationInfo: [
+  //         {
+  //           ...prev.educationInfo,
+  //           [e.target.name]: e.target.value,
+  //         },
+  //       ],
+  //     };
+  //   });
+  // }
 
   function handleEducationInfoChange(e) {
-    {
-      setEducationInfo((prev) =>
-        prev.map((object) => {
+    setCV((prev) => {
+      return {
+        ...prev,
+        educationInfo: prev.educationInfo.map((object) => {
           if (object.id === id) {
             return { ...object, [e.target.name]: e.target.value };
           } else {
             return { ...object };
           }
-        })
-      );
-    }
+        }),
+      };
+    });
   }
 
-  const index = educationInfo.findIndex((object) => object.id === id);
+  const index = cv.educationInfo.findIndex((object) => object.id === id);
 
   return (
     <div
@@ -32,53 +73,61 @@ function EducationInfo(props) {
         type="text"
         name="uniName"
         placeholder="University name"
-        value={educationInfo[index].uniName}
+        value={cv.educationInfo[index].uniName}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="city"
         placeholder="City"
-        value={educationInfo[index].city}
+        value={cv.educationInfo[index].city}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="degree"
         placeholder="Degree"
-        value={educationInfo[index].degree}
+        value={cv.educationInfo[index].degree}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="subject"
         placeholder="Subject"
-        value={educationInfo[index].subject}
+        value={cv.educationInfo[index].subject}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="startDate"
         placeholder="From (dd/mm/yy)"
-        value={educationInfo[index].startDate}
+        value={cv.educationInfo[index].startDate}
         onChange={handleEducationInfoChange}
       />
       <input
         type="text"
         name="endDate"
         placeholder="To (dd/mm/yy)"
-        value={educationInfo[index].endDate}
+        value={cv.educationInfo[index].endDate}
         onChange={handleEducationInfoChange}
       />
       <button
         type="button"
         className="delete-btn"
         onClick={() =>
-          setEducationInfo((prev) => prev.filter((object) => object.id !== id))
+          setCV((prev) => {
+            return {
+              ...prev,
+              educationInfo: prev.educationInfo.filter(
+                (object) => object.id !== id
+              ),
+            };
+          })
         }
       >
         Delete
       </button>
+      <button className="hidden"></button>
     </div>
   );
 }

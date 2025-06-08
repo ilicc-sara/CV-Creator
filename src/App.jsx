@@ -44,131 +44,161 @@ function App() {
     ],
   });
 
-  const [personalInfo, setPersonalInfo] = useState({
-    firstName: "",
-    lastName: "",
-    title: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
-    description: "",
-    id: crypto.randomUUID(),
-  });
+  // const [personalInfo, setPersonalInfo] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   title: "",
+  //   address: "",
+  //   phoneNumber: "",
+  //   email: "",
+  //   description: "",
+  //   id: crypto.randomUUID(),
+  // });
 
-  const [educationInfo, setEducationInfo] = useState([
-    {
-      uniName: "",
-      city: "",
-      degree: "",
-      subject: "",
-      startDate: "",
-      endDate: "",
-      id: crypto.randomUUID(),
-    },
-  ]);
+  // const [educationInfo, setEducationInfo] = useState([
+  //   {
+  //     uniName: "",
+  //     city: "",
+  //     degree: "",
+  //     subject: "",
+  //     startDate: "",
+  //     endDate: "",
+  //     id: crypto.randomUUID(),
+  //   },
+  // ]);
 
-  const [experienceInfo, setExperienceInfo] = useState([
-    {
-      position: "",
-      company: "",
-      city: "",
-      startDate: "",
-      endDate: "",
-      id: crypto.randomUUID(),
-    },
-  ]);
+  // const [experienceInfo, setExperienceInfo] = useState([
+  //   {
+  //     position: "",
+  //     company: "",
+  //     city: "",
+  //     startDate: "",
+  //     endDate: "",
+  //     id: crypto.randomUUID(),
+  //   },
+  // ]);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(personalInfo, educationInfo, experienceInfo);
+    // console.log(personalInfo, educationInfo, experienceInfo);
 
     setPreviewCV(true);
   }
 
   function reset() {
-    setPersonalInfo({
-      firstName: "",
-      lastName: "",
-      title: "",
-      address: "",
-      phoneNumber: "",
-      email: "",
-      description: "",
-      id: crypto.randomUUID(),
+    // setPersonalInfo({
+    //   firstName: "",
+    //   lastName: "",
+    //   title: "",
+    //   address: "",
+    //   phoneNumber: "",
+    //   email: "",
+    //   description: "",
+    //   id: crypto.randomUUID(),
+    // });
+    // setEducationInfo([
+    //   {
+    //     uniName: "",
+    //     city: "",
+    //     degree: "",
+    //     subject: "",
+    //     startDate: "",
+    //     endDate: "",
+    //     id: crypto.randomUUID(),
+    //   },
+    // ]);
+    // setExperienceInfo([
+    //   {
+    //     position: "",
+    //     company: "",
+    //     city: "",
+    //     startDate: "",
+    //     endDate: "",
+    //     id: crypto.randomUUID(),
+    //   },
+    // ]);
+
+    setCV({
+      personalInfo: {
+        firstName: "",
+        lastName: "",
+        title: "",
+        address: "",
+        phoneNumber: "",
+        email: "",
+        description: "",
+        id: crypto.randomUUID(),
+      },
+      educationInfo: [
+        {
+          uniName: "",
+          city: "",
+          degree: "",
+          subject: "",
+          startDate: "",
+          endDate: "",
+          id: crypto.randomUUID(),
+        },
+      ],
+      experienceInfo: [
+        {
+          position: "",
+          company: "",
+          city: "",
+          startDate: "",
+          endDate: "",
+          id: crypto.randomUUID(),
+        },
+      ],
     });
-    setEducationInfo([
-      {
-        uniName: "",
-        city: "",
-        degree: "",
-        subject: "",
-        startDate: "",
-        endDate: "",
-        id: crypto.randomUUID(),
-      },
-    ]);
-    setExperienceInfo([
-      {
-        position: "",
-        company: "",
-        city: "",
-        startDate: "",
-        endDate: "",
-        id: crypto.randomUUID(),
-      },
-    ]);
-
-    // const inputs = document.querySelectorAll("input");
-
-    // inputs.forEach((input) => (input.value = ""));
   }
   return (
     <>
       {!previewCV && (
         <form onSubmit={handleSubmit} className="inputs-container">
-          <PersonalInfo
-            key={1}
-            setPersonalInfo={setPersonalInfo}
-            id={personalInfo.id}
-            personalInfo={personalInfo}
-          />
+          <PersonalInfo key={1} setCV={setCV} id={cv.personalInfo.id} cv={cv} />
 
-          {educationInfo.map((educationInf, index) => (
+          {cv.educationInfo.map((educationInf, index) => (
             <EducationInfo
               key={index}
               id={educationInf.id}
-              setEducationInfo={setEducationInfo}
-              educationInfo={educationInfo}
+              setCV={setCV}
+              cv={cv}
             />
           ))}
           <button
             type="button"
             className="add-education"
             onClick={() =>
-              setEducationInfo((prev) => [
-                ...prev,
-                {
-                  uniName: "",
-                  city: "",
-                  degree: "",
-                  subject: "",
-                  startDate: "",
-                  endDate: "",
-                  id: crypto.randomUUID(),
-                },
-              ])
+              setCV((prev) => {
+                return {
+                  ...prev,
+                  educationInfo: [
+                    ...prev.educationInfo,
+                    {
+                      uniName: "",
+                      city: "",
+                      degree: "",
+                      subject: "",
+                      startDate: "",
+                      endDate: "",
+                      id: crypto.randomUUID(),
+                    },
+                  ],
+                };
+              })
             }
           >
             Add Education
           </button>
 
-          {experienceInfo.map((experienceInf, index) => (
+          {cv.experienceInfo.map((experienceInf, index) => (
             <ExperienceInfo
               key={index}
               id={experienceInf.id}
-              setExperienceInfo={setExperienceInfo}
-              experienceInfo={experienceInfo}
+              setCV={setCV}
+              cv={cv}
             />
           ))}
 
@@ -176,17 +206,22 @@ function App() {
             type="button"
             className="add-experience"
             onClick={() =>
-              setExperienceInfo((prev) => [
-                ...prev,
-                {
-                  position: "",
-                  company: "",
-                  city: "",
-                  startDate: "",
-                  endDate: "",
-                  id: crypto.randomUUID(),
-                },
-              ])
+              setCV((prev) => {
+                return {
+                  ...prev,
+                  experienceInfo: [
+                    ...prev.experienceInfo,
+                    {
+                      position: "",
+                      company: "",
+                      city: "",
+                      startDate: "",
+                      endDate: "",
+                      id: crypto.randomUUID(),
+                    },
+                  ],
+                };
+              })
             }
           >
             Add Experience
@@ -205,7 +240,7 @@ function App() {
         </form>
       )}
 
-      {previewCV && (
+      {/* {previewCV && (
         <div className="preview-page">
           <nav className="nav">
             <h2> {personalInfo.firstName} </h2>
@@ -255,7 +290,7 @@ function App() {
             </div>
           </main>
         </div>
-      )}
+      )} */}
     </>
   );
 }
