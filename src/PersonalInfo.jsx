@@ -1,4 +1,5 @@
 import React from "react";
+import InputText from "./InputText";
 
 function PersonalInfo(props) {
   const { id, cv, setCV } = props;
@@ -8,6 +9,8 @@ function PersonalInfo(props) {
   //     return { ...prev, [e.target.name]: e.target.value };
   //   });
   // }
+
+  const { firstName, lastName, title, address, description } = cv.personalInfo;
 
   function handlePersonalInfoChange(e) {
     setCV((prev) => {
@@ -37,6 +40,12 @@ function PersonalInfo(props) {
         value={cv.personalInfo.firstName}
         onChange={handlePersonalInfoChange}
       />
+      {/* <InputText
+        value={firstName}
+        name={firstName}
+        placeholder={"First Name"}
+        handlePersonalInfoChange={handlePersonalInfoChange}
+      /> */}
       <input
         type="text"
         name="lastName"
@@ -44,6 +53,12 @@ function PersonalInfo(props) {
         value={cv.personalInfo.lastName}
         onChange={handlePersonalInfoChange}
       />
+      {/* <InputText
+        value={lastName}
+        name={lastName}
+        placeholder={"Last Name"}
+        handlePersonalInfoChange={handlePersonalInfoChange}
+      /> */}
       <input
         type="text"
         name="title"
@@ -51,6 +66,17 @@ function PersonalInfo(props) {
         value={cv.personalInfo.title}
         onChange={handlePersonalInfoChange}
       />
+
+      <label className="chose-photo">Photo</label>
+      <input
+        type="file"
+        name="photo"
+        placeholder="Photo"
+        className="hidden"
+        // value={cv.personalInfo.title}
+        onChange={handlePersonalInfoChange}
+      />
+
       <input
         type="text"
         name="address"

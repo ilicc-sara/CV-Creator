@@ -44,81 +44,15 @@ function App() {
     ],
   });
 
-  // const [personalInfo, setPersonalInfo] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   title: "",
-  //   address: "",
-  //   phoneNumber: "",
-  //   email: "",
-  //   description: "",
-  //   id: crypto.randomUUID(),
-  // });
-
-  // const [educationInfo, setEducationInfo] = useState([
-  //   {
-  //     uniName: "",
-  //     city: "",
-  //     degree: "",
-  //     subject: "",
-  //     startDate: "",
-  //     endDate: "",
-  //     id: crypto.randomUUID(),
-  //   },
-  // ]);
-
-  // const [experienceInfo, setExperienceInfo] = useState([
-  //   {
-  //     position: "",
-  //     company: "",
-  //     city: "",
-  //     startDate: "",
-  //     endDate: "",
-  //     id: crypto.randomUUID(),
-  //   },
-  // ]);
-
   function handleSubmit(e) {
     e.preventDefault();
 
-    // console.log(personalInfo, educationInfo, experienceInfo);
+    // console.log(cv);
 
     setPreviewCV(true);
   }
 
   function reset() {
-    // setPersonalInfo({
-    //   firstName: "",
-    //   lastName: "",
-    //   title: "",
-    //   address: "",
-    //   phoneNumber: "",
-    //   email: "",
-    //   description: "",
-    //   id: crypto.randomUUID(),
-    // });
-    // setEducationInfo([
-    //   {
-    //     uniName: "",
-    //     city: "",
-    //     degree: "",
-    //     subject: "",
-    //     startDate: "",
-    //     endDate: "",
-    //     id: crypto.randomUUID(),
-    //   },
-    // ]);
-    // setExperienceInfo([
-    //   {
-    //     position: "",
-    //     company: "",
-    //     city: "",
-    //     startDate: "",
-    //     endDate: "",
-    //     id: crypto.randomUUID(),
-    //   },
-    // ]);
-
     setCV({
       personalInfo: {
         firstName: "",
@@ -240,28 +174,28 @@ function App() {
         </form>
       )}
 
-      {/* {previewCV && (
+      {previewCV && (
         <div className="preview-page">
           <nav className="nav">
-            <h2> {personalInfo.firstName} </h2>
-            <h4> {personalInfo.title} </h4>
+            <h2> {cv.personalInfo.firstName} </h2>
+            <h4> {cv.personalInfo.title} </h4>
           </nav>
 
           <main className="main">
             <div className="details-cont">
               <div>
                 <h3>Description</h3>
-                <p> {personalInfo.description} </p>
+                <p> {cv.personalInfo.description} </p>
               </div>
 
               <div>
                 <h3>Education</h3>
-                <p> {educationInfo[0].uniName} </p>
+                <p> {cv.educationInfo[0].uniName} </p>
               </div>
 
               <div>
                 <h3>Experience</h3>
-                <p> {experienceInfo[0].position} </p>
+                <p> {cv.experienceInfo[0].position} </p>
               </div>
             </div>
 
@@ -275,22 +209,22 @@ function App() {
 
               <div>
                 <h4> Addrress </h4>
-                <p> {personalInfo.address} </p>
+                <p> {cv.personalInfo.address} </p>
               </div>
 
               <div>
                 <h4> Phone Number </h4>
-                <p> {personalInfo.phoneNumber} </p>
+                <p> {cv.personalInfo.phoneNumber} </p>
               </div>
 
               <div>
                 <h4> Email </h4>
-                <p> {personalInfo.email} </p>
+                <p> {cv.personalInfo.email} </p>
               </div>
             </div>
           </main>
         </div>
-      )} */}
+      )}
     </>
   );
 }

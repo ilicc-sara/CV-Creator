@@ -57,6 +57,8 @@
   padding-left: 10px;
   border-radius: 5px;
   border: none;
+  font-family: inherit;
+  font-size: 14px;
 }
 
 .add-education,
@@ -159,6 +161,18 @@
 
 .personal-details-cont div {
   margin-left: 10px;
+}
+
+.chose-photo {
+  height: 40px;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  color: grey;
+  font-size: 14px;
 }
 
 .hidden {
