@@ -47,7 +47,9 @@ function PersonalInfo(props) {
         onChange={handlePersonalInfoChange}
       />
 
-      <label className="chose-photo">Photo</label>
+      <label className="chose-photo" for="input-file">
+        Photo
+      </label>
       <input
         type="file"
         name="photo"
@@ -55,6 +57,8 @@ function PersonalInfo(props) {
         className="hidden"
         // value={cv.personalInfo.title}
         onChange={handlePersonalInfoChange}
+        id="input-file"
+        accept="accept/jpeg, image/png, image/jpg "
       />
 
       <input
