@@ -2,8 +2,23 @@ import React from "react";
 
 function EducationInfo(props) {
   // prettier-ignore
-  const { id, educationInfo, handleEducationInfoChange, deleteEducation } =
+  const { id, educationInfo, deleteEducation, setCV } =
     props;
+
+  function handleEducationInfoChange(e) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        educationInfo: prev.educationInfo.map((object) => {
+          if (object.id === id) {
+            return { ...object, [e.target.name]: e.target.value };
+          } else {
+            return { ...object };
+          }
+        }),
+      };
+    });
+  }
 
   return (
     <div data-id={id} className="education-info-cont">

@@ -2,7 +2,22 @@ import React from "react";
 
 function ExperienceInfo(props) {
   // prettier-ignore
-  const { id, experienceInfo, handleExperienceInfoChange, deleteExperience } = props;
+  const { id, experienceInfo, deleteExperience, setCV } = props;
+
+  function handleExperienceInfoChange(e) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        experienceInfo: prev.experienceInfo.map((object) => {
+          if (object.id === id) {
+            return { ...object, [e.target.name]: e.target.value };
+          } else {
+            return { ...object };
+          }
+        }),
+      };
+    });
+  }
 
   return (
     <div data-id={id} className="experience-info-cont">

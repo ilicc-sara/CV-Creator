@@ -96,36 +96,6 @@ function App() {
     });
   }
 
-  function handleExperienceInfoChange(e) {
-    setCV((prev) => {
-      return {
-        ...prev,
-        experienceInfo: prev.experienceInfo.map((object) => {
-          if (object.id === id) {
-            return { ...object, [e.target.name]: e.target.value };
-          } else {
-            return { ...object };
-          }
-        }),
-      };
-    });
-  }
-
-  function handleEducationInfoChange(e) {
-    setCV((prev) => {
-      return {
-        ...prev,
-        educationInfo: prev.educationInfo.map((object) => {
-          if (object.id === id) {
-            return { ...object, [e.target.name]: e.target.value };
-          } else {
-            return { ...object };
-          }
-        }),
-      };
-    });
-  }
-
   function deleteEducation(id) {
     setCV((prev) => {
       return {
@@ -201,8 +171,9 @@ function App() {
               key={index}
               id={educationInf.id}
               educationInfo={educationInf}
-              handleEducationInfoChange={handleEducationInfoChange}
+              // handleEducationInfoChange={handleEducationInfoChange}
               deleteEducation={deleteEducation}
+              setCV={setCV}
             />
           ))}
           <button
@@ -218,8 +189,9 @@ function App() {
               key={index}
               id={experienceInf.id}
               experienceInfo={experienceInf}
-              handleExperienceInfoChange={handleExperienceInfoChange}
+              // handleExperienceInfoChange={handleExperienceInfoChange}
               deleteExperience={deleteExperience}
+              setCV={setCV}
             />
           ))}
 
