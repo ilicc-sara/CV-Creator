@@ -15,6 +15,7 @@ function App() {
       firstName: "",
       lastName: "",
       title: "",
+      photo: "./profilePic.png",
       address: "",
       phoneNumber: "",
       email: "",
@@ -244,7 +245,7 @@ function App() {
             <div className="personal-details-cont">
               <span>
                 {" "}
-                <img scr="./profilePhoto.jpeg" />
+                <img src="./profilePic.png" class="profile-pic" />
               </span>
 
               <h3>Personal Details</h3>
