@@ -2,15 +2,22 @@ import React from "react";
 import InputText from "./InputText";
 
 function PersonalInfo(props) {
-  const { id, personalInfo, handlePersonalInfoChange } = props;
+  const { id, personalInfo, handlePersonalInfoChange, cv } = props;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log(cv.personalInfo);
+  }
 
   return (
-    <div
+    <form
       data-id={id}
       className="personal-info-cont"
       onClick={(e) => {
         console.log(e.target.closest(".personal-info-cont").dataset.id);
       }}
+      onSubmit={handleSubmit}
     >
       <h3>Personal Information</h3>
       <input
@@ -90,7 +97,7 @@ function PersonalInfo(props) {
         onChange={handlePersonalInfoChange}
       />
       <button className="hidden"></button>
-    </div>
+    </form>
   );
 }
 

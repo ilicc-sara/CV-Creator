@@ -45,13 +45,13 @@ function App() {
     ],
   });
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-    // console.log(cv);
+  //   // console.log(cv);
 
-    setPreviewCV(true);
-  }
+  //   setPreviewCV(true);
+  // }
 
   function reset() {
     setCV({
@@ -158,13 +158,17 @@ function App() {
   return (
     <>
       {!previewCV && (
-        <form onSubmit={handleSubmit} className="inputs-container">
+        <div
+          //  onSubmit={handleSubmit}
+          className="inputs-container"
+        >
           <PersonalInfo
             key={1}
             setCV={setCV}
             id={cv.personalInfo.id}
             personalInfo={cv.personalInfo}
             handlePersonalInfoChange={handlePersonalInfoChange}
+            cv={cv}
           />
 
           {cv.educationInfo.map((educationInf, index) => (
@@ -214,7 +218,7 @@ function App() {
           >
             Reset
           </button>
-        </form>
+        </div>
       )}
 
       {previewCV && (
