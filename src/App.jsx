@@ -255,18 +255,45 @@ function App() {
           <main className="main">
             <div className="details-cont">
               <div>
-                <h3>Description</h3>
+                <h3 className="color-green">Description</h3>
                 <p> {cv.personalInfo.description} </p>
               </div>
 
               <div>
-                <h3>Education</h3>
-                <p> {cv.educationInfo[0].uniName} </p>
+                <h3 className="color-green">Education</h3>
+
+                {cv.educationInfo.map((educationObject) => {
+                  return (
+                    <div className="education-details">
+                      <h4> {educationObject.startDate} </h4>
+                      <h4> {educationObject.endDate} </h4>
+
+                      <div>
+                        <h4> {educationObject.subject} </h4>
+                        <p> {educationObject.uniName} </p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
               <div>
-                <h3>Experience</h3>
-                <p> {cv.experienceInfo[0].position} </p>
+                <h3 className="color-green">Experience</h3>
+
+                {cv.experienceInfo.map((experienceObject) => {
+                  return (
+                    <div className="education-details">
+                      <h4> {experienceObject.startDate} </h4>
+                      <h4> {experienceObject.endDate} </h4>
+
+                      <div>
+                        <h4> {experienceObject.position} </h4>
+                        <p> {experienceObject.company} </p>
+                        <p> {experienceObject.city} </p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -276,7 +303,7 @@ function App() {
                 <img src={cv.personalInfo.photo} class="profile-pic" />
               </span>
 
-              <h3>Personal Details</h3>
+              <h3 className="color-green">Personal Details</h3>
 
               <div>
                 <h4> Addrress </h4>
@@ -294,6 +321,18 @@ function App() {
               </div>
             </div>
           </main>
+        </div>
+      )}
+
+      {previewCV && (
+        <div className="back-and-print-btns">
+          <button className="back-btn" onClick={() => setPreviewCV(false)}>
+            Back
+          </button>
+
+          <button className="print-btn" onClick={() => setPreviewCV(false)}>
+            Print
+          </button>
         </div>
       )}
     </>

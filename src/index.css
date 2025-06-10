@@ -109,27 +109,31 @@
 }
 
 .preview-page {
-  background-color: lightgreen;
+  background: linear-gradient(to top left, rgb(182, 255, 212), #e3ffca);
   width: 750px;
-  margin: 0 auto;
+  margin: -20px auto;
+  border: 0.5px solid #1e293b;
+  border-radius: 5px;
 }
 
 .nav {
-  background-color: green;
+  background: linear-gradient(to top left, rgb(8, 147, 66), #9ae15d);
   color: white;
   text-align: left;
   padding: 10px 25px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .main {
   width: 100%;
-  height: 500px;
+  height: 550px;
   display: grid;
   grid-template-columns: 4fr 1.5fr;
 }
 
 .details-cont {
-  background-color: rgb(237, 255, 242);
+  background: linear-gradient(to top left, rgb(228, 255, 239), #f5ffec);
   text-align: left;
   padding: 10px 25px;
   display: flex;
@@ -144,7 +148,7 @@
 
 .personal-details-cont {
   /* background-color: lightpink; */
-  background-color: rgb(231, 231, 231);
+  background: linear-gradient(to top left, rgb(200, 225, 210), #e8f0e0);
   text-align: left;
 
   display: flex;
@@ -183,6 +187,51 @@
 .profile-pic {
   width: 100%;
   height: 100%;
+}
+
+.color-green {
+  color: rgb(8, 147, 66);
+}
+
+.back-and-print-btns {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.back-btn {
+  background: linear-gradient(to top left, #c62e2e, #fb2134);
+  height: 30px;
+  cursor: pointer;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  color: #e1edff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.print-btn {
+  background: linear-gradient(to top left, rgb(8, 147, 66), #9ae15d);
+  height: 30px;
+  cursor: pointer;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  color: #e1edff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.education-details,
+.experience-details {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 2fr;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 10px;
 }
 
 .hidden {
