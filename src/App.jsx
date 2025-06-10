@@ -4,8 +4,14 @@ import PersonalInfo from "./PersonalInfo";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
 import Button from "./Button";
+import { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 
 function App() {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
   const [previewCV, setPreviewCV] = useState(false);
 
   const [cv, setCV] = useState({
@@ -45,9 +51,7 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    // console.log(cv);
-
+    console.log(cv);
     setPreviewCV(true);
   }
 
@@ -246,9 +250,12 @@ function App() {
       )}
 
       {previewCV && (
-        <div className="preview-page">
+        <div className="preview-page" ref={componentRef}>
           <nav className="nav">
-            <h2> {cv.personalInfo.firstName} </h2>
+            <h2>
+              {" "}
+              {cv.personalInfo.firstName} {cv.personalInfo.lastName}{" "}
+            </h2>
             <h4> {cv.personalInfo.title} </h4>
           </nav>
 
@@ -330,7 +337,7 @@ function App() {
             Back
           </button>
 
-          <button className="print-btn" onClick={() => setPreviewCV(false)}>
+          <button className="print-btn" onClick={handlePrint}>
             Print
           </button>
         </div>
