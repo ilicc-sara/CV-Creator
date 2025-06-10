@@ -2,23 +2,7 @@ import React from "react";
 
 function EducationInfo(props) {
   // prettier-ignore
-  const { id, educationInfo, deleteEducation, setCV } =
-    props;
-
-  function handleEducationInfoChange(e) {
-    setCV((prev) => {
-      return {
-        ...prev,
-        educationInfo: prev.educationInfo.map((object) => {
-          if (object.id === id) {
-            return { ...object, [e.target.name]: e.target.value };
-          } else {
-            return { ...object };
-          }
-        }),
-      };
-    });
-  }
+  const { id, educationInfo, deleteEducation, handleEducationInfoChange } = props;
 
   return (
     <div data-id={id} className="education-info-cont">
@@ -28,42 +12,42 @@ function EducationInfo(props) {
         name="uniName"
         placeholder="University name"
         value={educationInfo.uniName}
-        onChange={handleEducationInfoChange}
+        onChange={(e) => handleEducationInfoChange(e, id)}
       />
       <input
         type="text"
         name="city"
         placeholder="City"
         value={educationInfo.city}
-        onChange={handleEducationInfoChange}
+        onChange={(e) => handleEducationInfoChange(e, id)}
       />
       <input
         type="text"
         name="degree"
         placeholder="Degree"
         value={educationInfo.degree}
-        onChange={handleEducationInfoChange}
+        onChange={(e) => handleEducationInfoChange(e, id)}
       />
       <input
         type="text"
         name="subject"
         placeholder="Subject"
         value={educationInfo.subject}
-        onChange={handleEducationInfoChange}
+        onChange={(e) => handleEducationInfoChange(e, id)}
       />
       <input
         type="text"
         name="startDate"
         placeholder="From (dd/mm/yy)"
         value={educationInfo.startDate}
-        onChange={handleEducationInfoChange}
+        onChange={(e) => handleEducationInfoChange(e, id)}
       />
       <input
         type="text"
         name="endDate"
         placeholder="To (dd/mm/yy)"
         value={educationInfo.endDate}
-        onChange={handleEducationInfoChange}
+        onChange={(e) => handleEducationInfoChange(e, id)}
       />
       <button
         type="button"

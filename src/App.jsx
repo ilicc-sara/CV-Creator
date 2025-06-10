@@ -45,13 +45,13 @@ function App() {
     ],
   });
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  //   // console.log(cv);
+    // console.log(cv);
 
-  //   setPreviewCV(true);
-  // }
+    setPreviewCV(true);
+  }
 
   function reset() {
     setCV({
@@ -93,6 +93,36 @@ function App() {
       return {
         ...prev,
         personalInfo: { ...prev.personalInfo, [e.target.name]: e.target.value },
+      };
+    });
+  }
+
+  function handleEducationInfoChange(e, id) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        educationInfo: prev.educationInfo.map((object) => {
+          if (object.id === id) {
+            return { ...object, [e.target.name]: e.target.value };
+          } else {
+            return { ...object };
+          }
+        }),
+      };
+    });
+  }
+
+  function handleExperienceInfoChange(e, id) {
+    setCV((prev) => {
+      return {
+        ...prev,
+        experienceInfo: prev.experienceInfo.map((object) => {
+          if (object.id === id) {
+            return { ...object, [e.target.name]: e.target.value };
+          } else {
+            return { ...object };
+          }
+        }),
       };
     });
   }
@@ -158,10 +188,7 @@ function App() {
   return (
     <>
       {!previewCV && (
-        <div
-          //  onSubmit={handleSubmit}
-          className="inputs-container"
-        >
+        <form onSubmit={handleSubmit} className="inputs-container">
           <PersonalInfo
             key={1}
             setCV={setCV}
@@ -176,9 +203,8 @@ function App() {
               key={index}
               id={educationInf.id}
               educationInfo={educationInf}
-              // handleEducationInfoChange={handleEducationInfoChange}
+              handleEducationInfoChange={handleEducationInfoChange}
               deleteEducation={deleteEducation}
-              setCV={setCV}
             />
           ))}
           <button
@@ -194,9 +220,8 @@ function App() {
               key={index}
               id={experienceInf.id}
               experienceInfo={experienceInf}
-              // handleExperienceInfoChange={handleExperienceInfoChange}
+              handleExperienceInfoChange={handleExperienceInfoChange}
               deleteExperience={deleteExperience}
-              setCV={setCV}
             />
           ))}
 
@@ -218,7 +243,7 @@ function App() {
           >
             Reset
           </button>
-        </div>
+        </form>
       )}
 
       {previewCV && (
@@ -249,7 +274,7 @@ function App() {
             <div className="personal-details-cont">
               <span>
                 {" "}
-                <img src="./profilePic.png" class="profile-pic" />
+                <img src={cv.personalInfo.photo} class="profile-pic" />
               </span>
 
               <h3>Personal Details</h3>

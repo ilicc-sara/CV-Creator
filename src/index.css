@@ -33,7 +33,7 @@
   padding: 5px;
 }
 
-.personal-info-cont {
+/* .personal-info-cont {
   background: linear-gradient(to top left, #c62e2e9e, #ff58a38c);
 }
 
@@ -47,7 +47,7 @@
     rgba(104, 232, 239, 0.596),
     rgba(94, 119, 194, 0.507)
   );
-}
+} */
 
 .personal-info-cont input,
 .education-info-cont input,
@@ -66,11 +66,13 @@
   height: 40px;
   cursor: pointer;
   background-color: #1e293b;
+  width: 900px;
   border: none;
   border-radius: 5px;
   color: #e1edff;
   font-weight: 600;
   font-size: 18px;
+  align-self: center;
 }
 
 .finish-btn {
@@ -89,18 +91,21 @@
 }
 
 .btn-reset {
-  background: linear-gradient(to top left, #c62e2e, #fb2134);
+  /* background: linear-gradient(to top left, #c62e2e, #fb2134); */
+  background: linear-gradient(to top left, rgb(4, 76, 34), #4d702e);
 }
 
 .delete-btn {
   height: 40px;
   cursor: pointer;
-  background-color: #5b1e1e;
+  width: 900px;
+  background: linear-gradient(to top left, #c62e2e, #fb2134);
   border: none;
   border-radius: 5px;
   color: #e1edff;
   font-weight: 600;
   font-size: 18px;
+  align-self: center;
 }
 
 .preview-page {

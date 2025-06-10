@@ -2,22 +2,7 @@ import React from "react";
 
 function ExperienceInfo(props) {
   // prettier-ignore
-  const { id, experienceInfo, deleteExperience, setCV } = props;
-
-  function handleExperienceInfoChange(e) {
-    setCV((prev) => {
-      return {
-        ...prev,
-        experienceInfo: prev.experienceInfo.map((object) => {
-          if (object.id === id) {
-            return { ...object, [e.target.name]: e.target.value };
-          } else {
-            return { ...object };
-          }
-        }),
-      };
-    });
-  }
+  const { id, experienceInfo, deleteExperience, handleExperienceInfoChange } = props;
 
   return (
     <div data-id={id} className="experience-info-cont">
@@ -27,21 +12,21 @@ function ExperienceInfo(props) {
         name="position"
         placeholder="Position"
         value={experienceInfo.position}
-        onChange={handleExperienceInfoChange}
+        onChange={(e) => handleExperienceInfoChange(e, id)}
       />
       <input
         type="text"
         name="company"
         placeholder="Company"
         value={experienceInfo.company}
-        onChange={handleExperienceInfoChange}
+        onChange={(e) => handleExperienceInfoChange(e, id)}
       />
       <input
         type="text"
         name="city"
         placeholder="City"
         value={experienceInfo.city}
-        onChange={handleExperienceInfoChange}
+        onChange={(e) => handleExperienceInfoChange(e, id)}
       />
 
       <input
@@ -49,14 +34,14 @@ function ExperienceInfo(props) {
         name="startDate"
         placeholder="From (dd/mm/yy)"
         value={experienceInfo.startDate}
-        onChange={handleExperienceInfoChange}
+        onChange={(e) => handleExperienceInfoChange(e, id)}
       />
       <input
         type="text"
         name="endDate"
         placeholder="To (dd/mm/yy)"
         value={experienceInfo.endDate}
-        onChange={handleExperienceInfoChange}
+        onChange={(e) => handleExperienceInfoChange(e, id)}
       />
       <button
         type="button"
