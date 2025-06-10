@@ -1,5 +1,5 @@
 import React from "react";
-import InputText from "./InputText";
+import Input from "./Input";
 
 function PersonalInfo(props) {
   const { id, personalInfo, handlePersonalInfoChange, cv } = props;
@@ -17,7 +17,6 @@ function PersonalInfo(props) {
       onClick={(e) => {
         console.log(e.target.closest(".personal-info-cont").dataset.id);
       }}
-      // onSubmit={handleSubmit}
     >
       <h3>Personal Information</h3>
       <input
@@ -27,12 +26,7 @@ function PersonalInfo(props) {
         value={personalInfo.firstName}
         onChange={handlePersonalInfoChange}
       />
-      {/* <InputText
-        value={firstName}
-        name={firstName}
-        placeholder={"First Name"}
-        handlePersonalInfoChange={handlePersonalInfoChange}
-      /> */}
+
       <input
         type="text"
         name="lastName"
@@ -40,12 +34,7 @@ function PersonalInfo(props) {
         value={personalInfo.lastName}
         onChange={handlePersonalInfoChange}
       />
-      {/* <InputText
-        value={lastName}
-        name={lastName}
-        placeholder={"Last Name"}
-        handlePersonalInfoChange={handlePersonalInfoChange}
-      /> */}
+
       <input
         type="text"
         name="title"
@@ -96,6 +85,21 @@ function PersonalInfo(props) {
         value={personalInfo.description}
         onChange={handlePersonalInfoChange}
       />
+
+      {/*         
+      <Input type={'text'} value={cv.personalInfo.firstName} name={cv.personalInfo.firstName} placeholder={"First Name"} handlePersonalInfoChange={handlePersonalInfoChange} />
+
+      
+      <Input type={'text'} value={cv.personalInfo.lastName} name={cv.personalInfo.lastName} placeholder={"Last Name"} handlePersonalInfoChange={handlePersonalInfoChange} />
+
+    
+      <Input type={'text'} value={cv.personalInfo.title} name={cv.personalInfo.title} placeholder={"Title"} handlePersonalInfoChange={handlePersonalInfoChange} />
+
+    
+      <Input type={'text'} value={cv.personalInfo.address} name={cv.personalInfo.address} placeholder={"Address"} handlePersonalInfoChange={handlePersonalInfoChange} />
+      
+      <Input type={'text'} value={cv.personalInfo.description} name={cv.personalInfo.description} placeholder={"Description"} handlePersonalInfoChange={handlePersonalInfoChange} /> */}
+
       <button className="hidden"></button>
     </div>
   );

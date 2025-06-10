@@ -1,11 +1,11 @@
 import React from "react";
 
-function InputText(props) {
-  const { value, type, name, placeholder, handlePersonalInfoChange } = props;
+function Input(props) {
+  const { type, value, name, placeholder, handlePersonalInfoChange } = props;
 
   return (
     <input
-      type="text"
+      type={type}
       name={name}
       placeholder={placeholder}
       value={value}
@@ -14,4 +14,4 @@ function InputText(props) {
   );
 }
 
-export default InputText;
+export default Input;

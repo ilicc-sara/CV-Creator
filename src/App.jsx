@@ -3,12 +3,10 @@ import "./App.css";
 import PersonalInfo from "./PersonalInfo";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
+import Button from "./Button";
 
 function App() {
   const [previewCV, setPreviewCV] = useState(false);
-  // const [cv, setCV]
-  // react comp input, primi prop type, ako ne primi , po defaultu je text
-  // napraviti componentu input text treba primiti prop type , handluje : text, tel, mail, photo
 
   const [cv, setCV] = useState({
     personalInfo: {
@@ -207,13 +205,13 @@ function App() {
               deleteEducation={deleteEducation}
             />
           ))}
-          <button
-            type="button"
-            className="add-education"
-            onClick={() => addEducation()}
-          >
-            Add Education
-          </button>
+
+          <Button
+            type={"button"}
+            className={"add-education"}
+            func={addEducation}
+            text={"Add Education"}
+          />
 
           {cv.experienceInfo.map((experienceInf, index) => (
             <ExperienceInfo
@@ -225,24 +223,25 @@ function App() {
             />
           ))}
 
-          <button
-            type="button"
-            className="add-experience"
-            onClick={() => addExperience()}
-          >
-            Add Experience
-          </button>
+          <Button
+            type={"button"}
+            className={"add-experience"}
+            func={addExperience}
+            text={"Add Experience"}
+          />
 
-          <button className="finish-btn btn-preview" type="submit">
-            Preview
-          </button>
-          <button
-            className="finish-btn btn-reset"
-            type="button"
-            onClick={() => reset()}
-          >
-            Reset
-          </button>
+          <Button
+            type={"submit"}
+            className={"finish-btn btn-preview"}
+            text={"Preview"}
+          />
+
+          <Button
+            type={"button"}
+            className={"finish-btn btn-reset"}
+            func={reset}
+            text={"Reset"}
+          />
         </form>
       )}
 
