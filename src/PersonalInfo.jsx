@@ -4,12 +4,6 @@ import Input from "./Input";
 function PersonalInfo(props) {
   const { id, personalInfo, handlePersonalInfoChange } = props;
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   console.log(cv.personalInfo);
-  // }
-
   return (
     <div
       data-id={id}
