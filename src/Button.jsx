@@ -31,7 +31,6 @@ function Button(props) {
       <button
         type={type}
         className={`${modifierClassName}`}
-        // className={className}
         onClick={handleClick}
       >
         {text}
