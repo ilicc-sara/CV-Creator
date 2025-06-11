@@ -1,4 +1,6 @@
 import React from "react";
+import Input from "./Input";
+import Button from "./Button";
 
 function EducationInfo(props) {
   // prettier-ignore
@@ -7,56 +9,61 @@ function EducationInfo(props) {
   return (
     <div data-id={id} className="education-info-cont">
       <h3>Education</h3>
-      <input
+
+      <Input
         type="text"
+        value={educationInfo.uniName}
         name="uniName"
         placeholder="University name"
-        value={educationInfo.uniName}
-        onChange={(e) => handleEducationInfoChange(e, id)}
+        handleInputChange={(e) => handleEducationInfoChange(e, id)}
       />
-      <input
+
+      <Input
         type="text"
+        value={educationInfo.city}
         name="city"
         placeholder="City"
-        value={educationInfo.city}
-        onChange={(e) => handleEducationInfoChange(e, id)}
+        handleInputChange={(e) => handleEducationInfoChange(e, id)}
       />
-      <input
+
+      <Input
         type="text"
+        value={educationInfo.degree}
         name="degree"
         placeholder="Degree"
-        value={educationInfo.degree}
-        onChange={(e) => handleEducationInfoChange(e, id)}
+        handleInputChange={(e) => handleEducationInfoChange(e, id)}
       />
-      <input
+
+      <Input
         type="text"
+        value={educationInfo.subject}
         name="subject"
         placeholder="Subject"
-        value={educationInfo.subject}
-        onChange={(e) => handleEducationInfoChange(e, id)}
+        handleInputChange={(e) => handleEducationInfoChange(e, id)}
       />
-      <input
+
+      <Input
         type="text"
+        value={educationInfo.startDate}
         name="startDate"
         placeholder="From (dd/mm/yy)"
-        value={educationInfo.startDate}
-        onChange={(e) => handleEducationInfoChange(e, id)}
+        handleInputChange={(e) => handleEducationInfoChange(e, id)}
       />
-      <input
+
+      <Input
         type="text"
+        value={educationInfo.endDate}
         name="endDate"
         placeholder="To (dd/mm/yy)"
-        value={educationInfo.endDate}
-        onChange={(e) => handleEducationInfoChange(e, id)}
+        handleInputChange={(e) => handleEducationInfoChange(e, id)}
       />
-      <button
+
+      <Button
         type="button"
         className="delete-btn"
-        onClick={() => deleteEducation(id)}
-      >
-        Delete
-      </button>
-      <button className="hidden"></button>
+        handleClick={() => deleteEducation(id)}
+        text="Delete"
+      />
     </div>
   );
 }

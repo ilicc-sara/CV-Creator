@@ -1,7 +1,7 @@
 import React from "react";
 
 function Input(props) {
-  const { type, value, name, placeholder, handlePersonalInfoChange } = props;
+  const { type, value, name, placeholder, handleInputChange } = props;
 
   return (
     <input
@@ -9,7 +9,7 @@ function Input(props) {
       name={name}
       placeholder={placeholder}
       value={value}
-      onChange={handlePersonalInfoChange}
+      onChange={handleInputChange}
     />
   );
 }

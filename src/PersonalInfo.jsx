@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Input";
 
 function PersonalInfo(props) {
-  const { id, personalInfo, handlePersonalInfoChange, cv } = props;
+  const { id, personalInfo, handlePersonalInfoChange } = props;
 
   // function handleSubmit(e) {
   //   e.preventDefault();
@@ -19,28 +19,29 @@ function PersonalInfo(props) {
       }}
     >
       <h3>Personal Information</h3>
-      <input
+
+      <Input
         type="text"
+        value={personalInfo.firstName}
         name="firstName"
         placeholder="First Name"
-        value={personalInfo.firstName}
-        onChange={handlePersonalInfoChange}
+        handleInputChange={handlePersonalInfoChange}
       />
 
-      <input
+      <Input
         type="text"
+        value={personalInfo.lastName}
         name="lastName"
         placeholder="Last Name"
-        value={personalInfo.lastName}
-        onChange={handlePersonalInfoChange}
+        handleInputChange={handlePersonalInfoChange}
       />
 
-      <input
+      <Input
         type="text"
+        value={personalInfo.title}
         name="title"
         placeholder="Title"
-        value={personalInfo.title}
-        onChange={handlePersonalInfoChange}
+        handleInputChange={handlePersonalInfoChange}
       />
 
       <label className="chose-photo" for="input-file">
@@ -51,56 +52,42 @@ function PersonalInfo(props) {
         name="photo"
         placeholder="Photo"
         className="hidden"
-        // value={cv.personalInfo.title}
         onChange={handlePersonalInfoChange}
         id="input-file"
         accept="accept/jpeg, image/png, image/jpg "
       />
 
-      <input
+      <Input
         type="text"
+        value={personalInfo.address}
         name="address"
         placeholder="Address"
-        value={personalInfo.address}
-        onChange={handlePersonalInfoChange}
+        handleInputChange={handlePersonalInfoChange}
       />
-      <input
+
+      <Input
         type="tel"
+        value={personalInfo.phoneNumber}
         name="phoneNumber"
         placeholder="Phone number"
-        value={personalInfo.phoneNumber}
-        onChange={handlePersonalInfoChange}
+        handleInputChange={handlePersonalInfoChange}
       />
-      <input
+
+      <Input
         type="email"
+        value={personalInfo.email}
         name="email"
         placeholder="Email"
-        value={personalInfo.email}
-        onChange={handlePersonalInfoChange}
+        handleInputChange={handlePersonalInfoChange}
       />
-      <input
+
+      <Input
         type="text"
+        value={personalInfo.description}
         name="description"
         placeholder="Description"
-        value={personalInfo.description}
-        onChange={handlePersonalInfoChange}
+        handleInputChange={handlePersonalInfoChange}
       />
-
-      {/*         
-      <Input type={'text'} value={cv.personalInfo.firstName} name={cv.personalInfo.firstName} placeholder={"First Name"} handlePersonalInfoChange={handlePersonalInfoChange} />
-
-      
-      <Input type={'text'} value={cv.personalInfo.lastName} name={cv.personalInfo.lastName} placeholder={"Last Name"} handlePersonalInfoChange={handlePersonalInfoChange} />
-
-    
-      <Input type={'text'} value={cv.personalInfo.title} name={cv.personalInfo.title} placeholder={"Title"} handlePersonalInfoChange={handlePersonalInfoChange} />
-
-    
-      <Input type={'text'} value={cv.personalInfo.address} name={cv.personalInfo.address} placeholder={"Address"} handlePersonalInfoChange={handlePersonalInfoChange} />
-      
-      <Input type={'text'} value={cv.personalInfo.description} name={cv.personalInfo.description} placeholder={"Description"} handlePersonalInfoChange={handlePersonalInfoChange} /> */}
-
-      <button className="hidden"></button>
     </div>
   );
 }

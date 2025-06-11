@@ -8,18 +8,18 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
 function App() {
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  const componentRef = useRef(null);
+  const handlePrint = useReactToPrint({ componentRef });
   const [previewCV, setPreviewCV] = useState(false);
+  const [foto, setFoto] = useState(null);
 
   const [cv, setCV] = useState({
     personalInfo: {
       firstName: "",
       lastName: "",
       title: "",
-      photo: "./profilePic.png",
+      // photo: foto,
+
       address: "",
       phoneNumber: "",
       email: "",
@@ -107,7 +107,7 @@ function App() {
           if (object.id === id) {
             return { ...object, [e.target.name]: e.target.value };
           } else {
-            return { ...object };
+            return object;
           }
         }),
       };
@@ -122,7 +122,7 @@ function App() {
           if (object.id === id) {
             return { ...object, [e.target.name]: e.target.value };
           } else {
-            return { ...object };
+            return object;
           }
         }),
       };
@@ -192,12 +192,10 @@ function App() {
       {!previewCV && (
         <form onSubmit={handleSubmit} className="inputs-container">
           <PersonalInfo
-            key={1}
             setCV={setCV}
             id={cv.personalInfo.id}
             personalInfo={cv.personalInfo}
             handlePersonalInfoChange={handlePersonalInfoChange}
-            cv={cv}
           />
 
           {cv.educationInfo.map((educationInf, index) => (
@@ -213,7 +211,7 @@ function App() {
           <Button
             type={"button"}
             className={"add-education"}
-            func={addEducation}
+            handleClick={addEducation}
             text={"Add Education"}
           />
 
@@ -228,23 +226,24 @@ function App() {
           ))}
 
           <Button
-            type={"button"}
-            className={"add-experience"}
-            func={addExperience}
-            text={"Add Experience"}
+            type="button"
+            className="add-experience"
+            // typeProp="reset"
+            handleClick={addExperience}
+            text="Add Experience"
           />
 
           <Button
-            type={"submit"}
-            className={"finish-btn btn-preview"}
-            text={"Preview"}
+            type="submit"
+            className="finish-btn btn-preview"
+            text="Preview"
           />
 
           <Button
-            type={"button"}
-            className={"finish-btn btn-reset"}
-            func={reset}
-            text={"Reset"}
+            type="button"
+            className="finish-btn btn-reset"
+            handleClick={reset}
+            text="Reset"
           />
         </form>
       )}
@@ -307,7 +306,7 @@ function App() {
             <div className="personal-details-cont">
               <span>
                 {" "}
-                <img src={cv.personalInfo.photo} class="profile-pic" />
+                <img src={cv.personalInfo.photo} className="profile-pic" />
               </span>
 
               <h3 className="color-green">Personal Details</h3>
@@ -333,13 +332,18 @@ function App() {
 
       {previewCV && (
         <div className="back-and-print-btns">
-          <button className="back-btn" onClick={() => setPreviewCV(false)}>
-            Back
-          </button>
-
-          <button className="print-btn" onClick={handlePrint}>
-            Print
-          </button>
+          <Button
+            type="button"
+            className="back-btn"
+            handleClick={() => setPreviewCV(false)}
+            text="Back"
+          />
+          <Button
+            type="button"
+            className="print-btn"
+            handleClick={handlePrint}
+            text="Print"
+          />
         </div>
       )}
     </>

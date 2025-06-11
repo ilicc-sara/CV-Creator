@@ -1,11 +1,20 @@
 import React from "react";
 
 function Button(props) {
-  const { type, className, func, text } = props;
-
-  if (func) {
+  const { type, className, handleClick, text } = props;
+  const baseClassName = "button";
+  let modifierClassNames;
+  if (type === "reset") {
+    modifierClassNames = "btn-reset reset";
+  }
+  if (handleClick) {
     return (
-      <button type={type} className={className} onClick={() => func()}>
+      <button
+        type={type}
+        // className={`${baseClassName} ${modifierClassNames}`}
+        className={className}
+        onClick={handleClick}
+      >
         {text}
       </button>
     );
