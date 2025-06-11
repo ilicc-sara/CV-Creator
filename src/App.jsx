@@ -4,6 +4,8 @@ import PersonalInfo from "./PersonalInfo";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
 import Button from "./Button";
+import EducationDetails from "./EducationDetails";
+import ExperienceDetails from "./ExperienceDetails";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
@@ -270,15 +272,12 @@ function App() {
 
                 {cv.educationInfo.map((educationObject) => {
                   return (
-                    <div className="education-details">
-                      <h4> {educationObject.startDate} </h4>
-                      <h4> {educationObject.endDate} </h4>
-
-                      <div>
-                        <h4> {educationObject.subject} </h4>
-                        <p> {educationObject.uniName} </p>
-                      </div>
-                    </div>
+                    <EducationDetails
+                      startDate={educationObject.startDate}
+                      endDate={educationObject.endDate}
+                      subject={educationObject.subject}
+                      uniName={educationObject.uniName}
+                    />
                   );
                 })}
               </div>
@@ -288,16 +287,13 @@ function App() {
 
                 {cv.experienceInfo.map((experienceObject) => {
                   return (
-                    <div className="education-details">
-                      <h4> {experienceObject.startDate} </h4>
-                      <h4> {experienceObject.endDate} </h4>
-
-                      <div>
-                        <h4> {experienceObject.position} </h4>
-                        <p> {experienceObject.company} </p>
-                        <p> {experienceObject.city} </p>
-                      </div>
-                    </div>
+                    <ExperienceDetails
+                      startDate={experienceObject.startDate}
+                      endDate={experienceObject.endDate}
+                      position={experienceObject.position}
+                      company={experienceObject.company}
+                      city={experienceObject.city}
+                    />
                   );
                 })}
               </div>
