@@ -1,18 +1,37 @@
 import React from "react";
 
 function Button(props) {
-  const { type, className, handleClick, text } = props;
-  const baseClassName = "button";
-  let modifierClassNames;
-  if (type === "reset") {
-    modifierClassNames = "btn-reset reset";
+  const { type, handleClick, text, typeProp } = props;
+  // const baseClassName = "button";
+  let modifierClassName;
+  // if (type === "reset") {
+  //   modifierClassName = "btn-reset reset";
+  // }
+
+  if (typeProp === "PrintBtn") {
+    modifierClassName = "print-btn";
+  }
+  if (typeProp === "BackBtn") {
+    modifierClassName = "back-btn";
+  }
+  if (typeProp === "AddBtn") {
+    modifierClassName = "add-btn";
+  }
+  if (typeProp === "DeleteBtn") {
+    modifierClassName = "delete-btn";
+  }
+  if (typeProp === "PreviewBtn") {
+    modifierClassName = "finish-btn btn-preview";
+  }
+  if (typeProp === "ResetBtn") {
+    modifierClassName = "finish-btn btn-reset";
   }
   if (handleClick) {
     return (
       <button
         type={type}
-        // className={`${baseClassName} ${modifierClassNames}`}
-        className={className}
+        className={`${modifierClassName}`}
+        // className={className}
         onClick={handleClick}
       >
         {text}
@@ -20,7 +39,7 @@ function Button(props) {
     );
   } else {
     return (
-      <button type={type} className={className}>
+      <button type={type} className={`${modifierClassName}`}>
         {text}
       </button>
     );

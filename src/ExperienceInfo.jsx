@@ -52,7 +52,8 @@ function ExperienceInfo(props) {
 
       <Button
         type="button"
-        className="delete-btn"
+        // className="delete-btn"
+        typeProp="DeleteBtn"
         handleClick={() => deleteExperience(id)}
         text="Delete"
       />

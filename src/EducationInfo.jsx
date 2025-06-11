@@ -60,7 +60,8 @@ function EducationInfo(props) {
 
       <Button
         type="button"
-        className="delete-btn"
+        // className="delete-btn"
+        typeProp="DeleteBtn"
         handleClick={() => deleteEducation(id)}
         text="Delete"
       />

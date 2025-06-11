@@ -212,7 +212,8 @@ function App() {
 
           <Button
             type={"button"}
-            className={"add-education"}
+            // className={"add-education"}
+            typeProp="AddBtn"
             handleClick={addEducation}
             text={"Add Education"}
           />
@@ -229,21 +230,23 @@ function App() {
 
           <Button
             type="button"
-            className="add-experience"
-            // typeProp="reset"
+            // className="add-experience"
+            typeProp="AddBtn"
             handleClick={addExperience}
             text="Add Experience"
           />
 
           <Button
             type="submit"
-            className="finish-btn btn-preview"
+            // className="finish-btn btn-preview"
+            typeProp="PreviewBtn"
             text="Preview"
           />
 
           <Button
             type="button"
-            className="finish-btn btn-reset"
+            // className="finish-btn btn-reset"
+            typeProp="ResetBtn"
             handleClick={reset}
             text="Reset"
           />
@@ -330,13 +333,15 @@ function App() {
         <div className="back-and-print-btns">
           <Button
             type="button"
-            className="back-btn"
+            // className="back-btn"
+            typeProp="BackBtn"
             handleClick={() => setPreviewCV(false)}
             text="Back"
           />
           <Button
             type="button"
-            className="print-btn"
+            // className="print-btn"
+            typeProp="PrintBtn"
             handleClick={handlePrint}
             text="Print"
           />
