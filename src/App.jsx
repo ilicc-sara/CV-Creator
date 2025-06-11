@@ -191,6 +191,7 @@ function App() {
   }
   return (
     <>
+      {!previewCV && <h1>CV CREATOR</h1>}
       {!previewCV && (
         <form onSubmit={handleSubmit} className="inputs-container">
           <PersonalInfo
