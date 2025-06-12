@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Input";
 
 function PersonalInfo(props) {
-  const { id, personalInfo, handlePersonalInfoChange } = props;
+  const { id, personalInfo, handlePersonalInfoChange, setPhoto, setCV } = props;
 
   return (
     <div
@@ -46,9 +46,24 @@ function PersonalInfo(props) {
         name="photo"
         placeholder="Photo"
         className="hidden"
-        onChange={handlePersonalInfoChange}
+        onChange={
+          (e) =>
+            setCV((prev) => {
+              return {
+                ...prev,
+                personalInfo: {
+                  ...prev.personalInfo,
+                  [e.target.name]: e.target.files[0].name,
+                },
+              };
+            })
+          // {
+          //   setPhoto(e.target.files[0].name);
+          // }
+        }
+        // onChange={(e) => setPhoto(e.target.files[0])}
         id="input-file"
-        accept="accept/jpeg, image/png, image/jpg "
+        accept="accept/jpeg, image/png, image/jpg image/jpeg "
       />
 
       <Input

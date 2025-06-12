@@ -13,15 +13,14 @@ function App() {
   const componentRef = useRef(null);
   const handlePrint = useReactToPrint({ componentRef });
   const [previewCV, setPreviewCV] = useState(false);
-  const [foto, setFoto] = useState(null);
+  const [photo, setPhoto] = useState(null);
 
   const [cv, setCV] = useState({
     personalInfo: {
       firstName: "",
       lastName: "",
       title: "",
-      // photo: foto,
-
+      photo: photo,
       address: "",
       phoneNumber: "",
       email: "",
@@ -63,6 +62,7 @@ function App() {
         firstName: "",
         lastName: "",
         title: "",
+        photo: photo,
         address: "",
         phoneNumber: "",
         email: "",
@@ -199,6 +199,7 @@ function App() {
             id={cv.personalInfo.id}
             personalInfo={cv.personalInfo}
             handlePersonalInfoChange={handlePersonalInfoChange}
+            setPhoto={setPhoto}
           />
 
           {cv.educationInfo.map((educationInf, index) => (
