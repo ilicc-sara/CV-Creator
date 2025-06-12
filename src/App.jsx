@@ -10,8 +10,21 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
 function App() {
-  const componentRef = useRef(null);
-  const handlePrint = useReactToPrint({ componentRef });
+  const contentRef = useRef();
+  // const handlePrint = useReactToPrint({
+  //   content: () => contentRef.current.innerHTML,
+  // });
+  const handlePrint = () => {
+    const content = contentRef.current.innerHTML;
+    const printWindow = window.open("", "_blank");
+    printWindow.document.write(`
+    <html>
+      <head><title>CV</title></head>
+      <body>${content}</body>
+    </html>
+  `);
+    printWindow.print();
+  };
   const [previewCV, setPreviewCV] = useState(false);
   const [photo, setPhoto] = useState(null);
 
@@ -248,7 +261,7 @@ function App() {
       )}
 
       {previewCV && (
-        <div className="preview-page" ref={componentRef}>
+        <div ref={contentRef} className="preview-page">
           <nav className="nav">
             <h2>
               {" "}
