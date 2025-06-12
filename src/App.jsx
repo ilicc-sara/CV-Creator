@@ -10,21 +10,23 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
 function App() {
-  const contentRef = useRef();
+  // const contentRef = useRef();
   // const handlePrint = useReactToPrint({
-  //   content: () => contentRef.current.innerHTML,
+  //   content: () => contentRef.current,
   // });
-  const handlePrint = () => {
-    const content = contentRef.current.innerHTML;
-    const printWindow = window.open("", "_blank");
-    printWindow.document.write(`
-    <html>
-      <head><title>CV</title></head>
-      <body>${content}</body>
-    </html>
-  `);
-    printWindow.print();
-  };
+  const contentRef = useRef(null);
+  const reactToPrintFn = useReactToPrint({ contentRef });
+  // const handlePrint = () => {
+  //   const content = contentRef.current.innerHTML;
+  //   const printWindow = window.open("", "_blank");
+  //   printWindow.document.write(`
+  //   <html>
+  //     <head><title>CV</title></head>
+  //     <body>${content}</body>
+  //   </html>
+  // `);
+  //   printWindow.print();
+  // };
   const [previewCV, setPreviewCV] = useState(false);
   const [photo, setPhoto] = useState(null);
 
@@ -312,7 +314,7 @@ function App() {
             <div className="personal-details-cont">
               <span>
                 {" "}
-                <img src={cv.personalInfo.photo} className="profile-pic" />
+                <img src={photo} className="profile-pic" />
               </span>
 
               <h3 className="color-green">Personal Details</h3>
@@ -347,7 +349,7 @@ function App() {
           <Button
             type="button"
             typeProp="PrintBtn"
-            handleClick={handlePrint}
+            handleClick={reactToPrintFn}
             text="Print"
           />
         </div>

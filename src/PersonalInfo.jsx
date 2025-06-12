@@ -2,7 +2,9 @@ import React from "react";
 import Input from "./Input";
 
 function PersonalInfo(props) {
-  const { id, personalInfo, handlePersonalInfoChange, setPhoto, setCV } = props;
+  const { id, personalInfo, handlePersonalInfoChange, setPhoto } = props;
+  // dok odbrojava 10s download btn je enabled a generate btns su disabled
+  // kada je 10s odbrojalo download btn je disabled a generate enabled
 
   return (
     <div
@@ -46,20 +48,19 @@ function PersonalInfo(props) {
         name="photo"
         placeholder="Photo"
         className="hidden"
-        onChange={
-          (e) =>
-            setCV((prev) => {
-              return {
-                ...prev,
-                personalInfo: {
-                  ...prev.personalInfo,
-                  [e.target.name]: e.target.files[0].name,
-                },
-              };
-            })
-          // {
-          //   setPhoto(e.target.files[0].name);
-          // }
+        onChange={(e) =>
+          // setCV((prev) => {
+          //   return {
+          //     ...prev,
+          //     personalInfo: {
+          //       ...prev.personalInfo,
+          //       [e.target.name]: e.target.files[0].name,
+          //     },
+          //   };
+          // })
+          {
+            setPhoto(URL.createObjectURL(e.target.files[0]));
+          }
         }
         // onChange={(e) => setPhoto(e.target.files[0])}
         id="input-file"
