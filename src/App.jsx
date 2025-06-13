@@ -6,6 +6,7 @@ import ExperienceInfo from "./ExperienceInfo";
 import Button from "./Button";
 import EducationDetails from "./EducationDetails";
 import ExperienceDetails from "./ExperienceDetails";
+import PersonalDetails from "./PersonalDetails";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
@@ -311,29 +312,7 @@ function App() {
               </div>
             </div>
 
-            <div className="personal-details-cont">
-              <span>
-                {" "}
-                <img src={photo} className="profile-pic" />
-              </span>
-
-              <h3 className="color-green">Personal Details</h3>
-
-              <div>
-                <h4> Addrress </h4>
-                <p> {cv.personalInfo.address} </p>
-              </div>
-
-              <div>
-                <h4> Phone Number </h4>
-                <p> {cv.personalInfo.phoneNumber} </p>
-              </div>
-
-              <div>
-                <h4> Email </h4>
-                <p> {cv.personalInfo.email} </p>
-              </div>
-            </div>
+            <PersonalDetails photo={photo} personalInfo={cv.personalInfo} />
           </main>
         </div>
       )}

@@ -117,7 +117,7 @@ h1 {
 .preview-page {
   background: linear-gradient(to top left, rgb(182, 255, 212), #e3ffca);
   width: 750px;
-  margin: -20px auto;
+  margin: 0 auto;
   border: 0.5px solid #1e293b;
   border-radius: 5px;
 }
