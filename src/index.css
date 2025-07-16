@@ -18,7 +18,7 @@ h1 {
 }
 
 .inputs-container {
-  background-color: rgba(0, 0, 0, 0.147);
+  background-color: rgba(21, 0, 179, 0.147);
   padding: 20px 32px;
   width: 1000px;
   margin: 0 auto;
@@ -72,6 +72,7 @@ h1 {
   height: 40px;
   cursor: pointer;
   background-color: #1e293b;
+  background-color: #1a1ab2;
   width: 900px;
   border: none;
   border-radius: 5px;
